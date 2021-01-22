@@ -27,28 +27,28 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="22.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SwR-KY-Hw2">
-                                                    <rect key="frame" x="0.0" y="0.0" width="294.5" height="22.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="64" height="22.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FEq-Rd-gca">
-                                                    <rect key="frame" x="294.5" y="0.0" width="41.5" height="22.5"/>
+                                                    <rect key="frame" x="64" y="0.0" width="290" height="22.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="290" id="B1N-wf-bJb"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sMu-vT-wqB">
-                                                    <rect key="frame" x="336" y="0.0" width="78" height="22.5"/>
+                                                    <rect key="frame" x="354" y="0.0" width="60" height="22.5"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="78" id="zic-ZW-9h9"/>
+                                                        <constraint firstAttribute="width" constant="60" id="k60-6w-BXc"/>
                                                     </constraints>
                                                     <state key="normal" title="Button" image="cart.badge.plus" catalog="system"/>
                                                 </button>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="FEq-Rd-gca" firstAttribute="baseline" secondItem="sMu-vT-wqB" secondAttribute="baseline" id="sT6-Cv-5md"/>
-                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
@@ -73,14 +73,17 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PCW-kp-E5k">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="30.5"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9nh-lx-cPB">
-                                                    <rect key="frame" x="0.0" y="0.0" width="271" height="30.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9nh-lx-cPB">
+                                                    <rect key="frame" x="0.0" y="0.0" width="62.5" height="30.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2xz-s7-yiz">
-                                                    <rect key="frame" x="271" y="0.0" width="41.5" height="30.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2xz-s7-yiz">
+                                                    <rect key="frame" x="62.5" y="0.0" width="250" height="30.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="250" id="5Nx-fm-WlU"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -109,9 +112,6 @@
                                                     <state key="normal" title="+"/>
                                                 </button>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="2xz-s7-yiz" firstAttribute="leading" secondItem="9nh-lx-cPB" secondAttribute="trailing" id="dGt-a4-HLe"/>
-                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
@@ -124,7 +124,6 @@
                                 <connections>
                                     <outlet property="ingredientNameLabel" destination="2xz-s7-yiz" id="jHc-tl-3Bs"/>
                                     <outlet property="priceLabel" destination="9nh-lx-cPB" id="WTc-Td-gmy"/>
-                                    <outlet property="quantity" destination="I8v-jV-9gr" id="rJP-Qe-Rfi"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

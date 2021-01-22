@@ -12,6 +12,8 @@ class IngredientCell: UITableViewCell, IngredientView {
     @IBOutlet weak var ingredientNameLabel: UILabel!
     @IBOutlet weak var quantity: UILabel!
     
+    let quantityVal:Int = 0
+    
     func display(ingredient: String) {
         ingredientNameLabel.text = ingredient
     }
@@ -20,8 +22,8 @@ class IngredientCell: UITableViewCell, IngredientView {
         priceLabel.text = price + "€"
     }
     
-    func display(quantity: String) {
-        
+    func display(quantityString: String) {
+        //quantity.text = quantityString
     }
     
     override func prepareForReuse() {
