@@ -44,5 +44,4 @@ struct Sandwich: Equatable {
         
         return total
     }
-    
 }
