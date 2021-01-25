@@ -34,7 +34,6 @@ public enum SandwichType:  String, CaseIterable {
 
 struct Sandwich: Equatable {
     let type: SandwichType
-    //var ingredient: Ingredient
     
     func price() -> Double {
         var total:Double = 0.0

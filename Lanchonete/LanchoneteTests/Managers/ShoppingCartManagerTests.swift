@@ -12,7 +12,7 @@ class ShoppingCartManagerTests: XCTestCase {
     
     func test_GIVEN_an_empty_shopping_cart_WHEN_I_add_a_sandwich_THEN_the_total_should_be_the_price_of_the_added_sandwich() {
         let manager = ShoppingCartManager()
-        //let sandwich = Sandwich(type: .xBacon)
+        
         manager.addSandwich(type: .xBacon)
         XCTAssertEqual(manager.getFinalPrice(), 7.0)
     }
@@ -42,6 +42,35 @@ class ShoppingCartManagerTests: XCTestCase {
         manager.addSandwich(type: .xBacon)
         
         manager.removeSandwich(type: .xBacon)
+        
+        XCTAssertEqual(manager.getFinalPrice(), 0)
+    }
+    
+    func test_GIVEN_a_shopping_cart_containing_two_equal_sandwiches_WHEN_I_remove_a_sandwich_THEN_the_total_should_be_the_price_of_the_remaining_sandwich() {
+    
+        let manager = ShoppingCartManager()
+        
+        manager.addSandwich(type: .xBacon)
+        manager.addSandwich(type: .xBacon)
+        
+        manager.removeSandwich(type: .xBacon)
+        
+        XCTAssertEqual(manager.getFinalPrice(), 7.0)
+    }
+    
+    func test_GIVEN_a_shopping_cart_containing_one_sandwich_WHEN_I_remove_a_sandwich_that_is_not_in_the_shopping_cart_THEN_the_total_should_be_the_price_of_the_remaining_sandwich() {
+        
+        let manager = ShoppingCartManager()
+        
+        manager.addSandwich(type: .xBacon)
+        
+        manager.removeSandwich(type: .xBurguer)
+        
+        XCTAssertEqual(manager.getFinalPrice(), 7.0)
+    }
+    
+    func test_GIVEN_an_empty_shopping_cart_WHEN_nothing_is_done_THEN_the_final_price_should_be_0(){
+        let manager = ShoppingCartManager()
         
         XCTAssertEqual(manager.getFinalPrice(), 0)
     }
