@@ -12,21 +12,16 @@ public enum SandwichType:  String, CaseIterable {
     case xBurguer = "X-Burguer"
     case xEggBacon = "X-EggBacon"
     
-    var ingredientsInSandwich: [IngredientInSandwich] {
+    var ingredientsInSandwich: [Ingredient] {
         switch self {
         case .xBacon:
-            return [IngredientInSandwich(ingredient: .hamburguer, quantity: 1),
-                    IngredientInSandwich(ingredient: .cheese, quantity: 1),
-                    IngredientInSandwich(ingredient: .bacon, quantity: 1)]
+            return [.hamburguer,.cheese,.bacon]
         case .xBurguer:
-            return [IngredientInSandwich(ingredient: .hamburguer, quantity: 1), IngredientInSandwich(ingredient: .cheese, quantity: 1)]
+            return [.hamburguer,.cheese]
         case .xEgg:
-            return [IngredientInSandwich(ingredient: .hamburguer, quantity:1),IngredientInSandwich(ingredient: .cheese, quantity: 1),IngredientInSandwich(ingredient: .egg, quantity: 1)]
+            return [.hamburguer,.cheese,.egg]
         case .xEggBacon:
-            return [IngredientInSandwich(ingredient: .egg, quantity: 1),
-                    IngredientInSandwich(ingredient: .bacon, quantity: 1),
-                    IngredientInSandwich(ingredient: .hamburguer, quantity: 1),
-                    IngredientInSandwich(ingredient:.cheese, quantity: 1)]
+            return [.hamburguer,.cheese,.egg,.bacon]
         }
     }
     
@@ -39,7 +34,7 @@ struct Sandwich: Equatable {
         var total:Double = 0.0
         
         for ingredient in type.ingredientsInSandwich {
-            total += ingredient.total()
+            total += ingredient.price
         }
         
         return total
