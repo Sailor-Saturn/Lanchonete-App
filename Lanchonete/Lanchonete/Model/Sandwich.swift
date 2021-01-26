@@ -32,7 +32,7 @@ public enum SandwichType:  String, CaseIterable {
     
 }
 
-struct Sandwich: Equatable {
+public struct Sandwich: Equatable {
     let type: SandwichType
     
     func price() -> Double {

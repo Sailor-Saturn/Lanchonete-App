@@ -14,6 +14,8 @@
 		360DD3CC25B9A04F0033C599 /* IngredientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360DD3CB25B9A04F0033C599 /* IngredientView.swift */; };
 		360DD3D125B9C90E0033C599 /* IngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360DD3D025B9C90E0033C599 /* IngredientCell.swift */; };
 		360DD3D825BB48B10033C599 /* ShoppingCartManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360DD3D725BB48B10033C599 /* ShoppingCartManagerTests.swift */; };
+		360DD3E625BF3BE40033C599 /* ConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360DD3E525BF3BE40033C599 /* ConfirmationViewController.swift */; };
+		360DD3ED25BF41F50033C599 /* TableDemoViewPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360DD3EC25BF41F50033C599 /* TableDemoViewPresenterTests.swift */; };
 		362C757D25A618500011C600 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C757C25A618500011C600 /* AppDelegate.swift */; };
 		362C757F25A618500011C600 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C757E25A618500011C600 /* SceneDelegate.swift */; };
 		362C758125A618500011C600 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C758025A618500011C600 /* ViewController.swift */; };
@@ -55,6 +57,8 @@
 		360DD3CB25B9A04F0033C599 /* IngredientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientView.swift; sourceTree = "<group>"; };
 		360DD3D025B9C90E0033C599 /* IngredientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientCell.swift; sourceTree = "<group>"; };
 		360DD3D725BB48B10033C599 /* ShoppingCartManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartManagerTests.swift; sourceTree = "<group>"; };
+		360DD3E525BF3BE40033C599 /* ConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewController.swift; sourceTree = "<group>"; };
+		360DD3EC25BF41F50033C599 /* TableDemoViewPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableDemoViewPresenterTests.swift; sourceTree = "<group>"; };
 		362C757925A618500011C600 /* Lanchonete.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lanchonete.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		362C757C25A618500011C600 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		362C757E25A618500011C600 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +140,22 @@
 			path = Managers;
 			sourceTree = "<group>";
 		};
+		360DD3EA25BF41E20033C599 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				360DD3EB25BF41E90033C599 /* Presenter */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		360DD3EB25BF41E90033C599 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				360DD3EC25BF41F50033C599 /* TableDemoViewPresenterTests.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		362C757025A618500011C600 = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +197,7 @@
 		362C759225A618500011C600 /* LanchoneteTests */ = {
 			isa = PBXGroup;
 			children = (
+				360DD3EA25BF41E20033C599 /* Controller */,
 				360DD3D625BB48990033C599 /* Managers */,
 				362C759325A618500011C600 /* LanchoneteTests.swift */,
 				362C759525A618500011C600 /* Info.plist */,
@@ -217,6 +238,7 @@
 				360DD3B325B88A480033C599 /* Presenter */,
 				362C758025A618500011C600 /* ViewController.swift */,
 				360DD3AE25B877680033C599 /* TableViewController.swift */,
+				360DD3E525BF3BE40033C599 /* ConfirmationViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -362,6 +384,7 @@
 			files = (
 				360DD3BF25B890120033C599 /* SandwichView.swift in Sources */,
 				362C75DF25A8BC6F0011C600 /* PartialOrder.swift in Sources */,
+				360DD3E625BF3BE40033C599 /* ConfirmationViewController.swift in Sources */,
 				362C75FB25AF12860011C600 /* ShoppingCartManager.swift in Sources */,
 				360DD3CC25B9A04F0033C599 /* IngredientView.swift in Sources */,
 				362C75EB25AF0ABD0011C600 /* IngredientManager.swift in Sources */,
@@ -385,6 +408,7 @@
 			files = (
 				362C759425A618500011C600 /* LanchoneteTests.swift in Sources */,
 				360DD3D825BB48B10033C599 /* ShoppingCartManagerTests.swift in Sources */,
+				360DD3ED25BF41F50033C599 /* TableDemoViewPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
