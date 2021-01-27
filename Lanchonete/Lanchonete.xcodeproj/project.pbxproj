@@ -28,6 +28,7 @@
 		362C75EB25AF0ABD0011C600 /* IngredientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C75EA25AF0ABD0011C600 /* IngredientManager.swift */; };
 		362C75F625AF0C900011C600 /* SandwichManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C75F525AF0C900011C600 /* SandwichManager.swift */; };
 		362C75FB25AF12860011C600 /* ShoppingCartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C75FA25AF12860011C600 /* ShoppingCartManager.swift */; };
+		36CFEEB325C040CD005364EA /* SandwichManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CFEEB225C040CD005364EA /* SandwichManagerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		362C75EA25AF0ABD0011C600 /* IngredientManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientManager.swift; sourceTree = "<group>"; };
 		362C75F525AF0C900011C600 /* SandwichManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandwichManager.swift; sourceTree = "<group>"; };
 		362C75FA25AF12860011C600 /* ShoppingCartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartManager.swift; sourceTree = "<group>"; };
+		36CFEEB225C040CD005364EA /* SandwichManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandwichManagerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				360DD3D725BB48B10033C599 /* ShoppingCartManagerTests.swift */,
+				36CFEEB225C040CD005364EA /* SandwichManagerTests.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				362C759425A618500011C600 /* LanchoneteTests.swift in Sources */,
+				36CFEEB325C040CD005364EA /* SandwichManagerTests.swift in Sources */,
 				360DD3D825BB48B10033C599 /* ShoppingCartManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
