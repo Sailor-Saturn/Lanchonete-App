@@ -13,6 +13,7 @@ public enum Sections: CaseIterable {
 }
 public protocol TableDemoView: class {
     func reloadData()
+    func navigateToConfirmationScreen(sandwich: SandwichType)
 }
 
 public class TableDemoPresenter {
@@ -73,5 +74,10 @@ public class TableDemoPresenter {
         view.display(price: ingredientManager.getIngredientPrice(ingredient: ingredient))
         view.display(ingredient: ingredientManager.getIngredientName(ingredient: ingredient))
         
+    }
+    
+    func didSelect(row: Int){
+        let selectedSandwich = menuSandwiches[row]
+        view?.navigateToConfirmationScreen(sandwich: selectedSandwich)
     }
 }
