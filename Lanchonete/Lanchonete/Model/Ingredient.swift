@@ -7,11 +7,11 @@
 
 import Foundation
 
-public enum Ingredient: String, CaseIterable {
-    case hamburguer = "Hamburguer"
-    case egg = "Egg"
-    case cheese = "Cheese"
-    case bacon = "Bacon"
+public enum Ingredient: CaseIterable {
+    case hamburguer
+    case egg
+    case cheese
+    case bacon
     
     var price: Double {
         switch self {
@@ -21,4 +21,14 @@ public enum Ingredient: String, CaseIterable {
         case .bacon: return 2.5
         }
     }
+    
+    var name: String {
+        switch self {
+        case .hamburguer: return "Hamburguer"
+        case .egg: return "Egg"
+        case .cheese: return "Cheese"
+        case .bacon: return "Bacon"
+        }
+    }
 }
+

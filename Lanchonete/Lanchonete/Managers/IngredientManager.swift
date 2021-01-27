@@ -17,6 +17,6 @@ public class IngredientManager {
     }
     
     public func getIngredientName(ingredient: Ingredient)-> String{
-        return ingredient.rawValue
+        return ingredient.name
     }
 }
