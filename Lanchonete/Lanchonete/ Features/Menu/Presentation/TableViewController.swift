@@ -72,6 +72,6 @@ class TableViewController: UITableViewController, TableDemoView {
             return
         }
         
-        confirmationViewController.sandwichType = sandwichType
+        confirmationViewController.presenter = ConfirmationViewPresenter(sandwichManager: SandwichManager(with: sandwichType))
     }
 }

@@ -18,7 +18,6 @@
 		360DD3ED25BF41F50033C599 /* TableDemoViewPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 360DD3EC25BF41F50033C599 /* TableDemoViewPresenterTests.swift */; };
 		362C757D25A618500011C600 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C757C25A618500011C600 /* AppDelegate.swift */; };
 		362C757F25A618500011C600 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C757E25A618500011C600 /* SceneDelegate.swift */; };
-		362C758125A618500011C600 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C758025A618500011C600 /* ViewController.swift */; };
 		362C758425A618500011C600 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 362C758225A618500011C600 /* Main.storyboard */; };
 		362C758625A618500011C600 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 362C758525A618500011C600 /* Assets.xcassets */; };
 		362C759425A618500011C600 /* LanchoneteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C759325A618500011C600 /* LanchoneteTests.swift */; };
@@ -30,6 +29,9 @@
 		362C75EB25AF0ABD0011C600 /* IngredientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C75EA25AF0ABD0011C600 /* IngredientManager.swift */; };
 		362C75F625AF0C900011C600 /* SandwichManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C75F525AF0C900011C600 /* SandwichManager.swift */; };
 		362C75FB25AF12860011C600 /* ShoppingCartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C75FA25AF12860011C600 /* ShoppingCartManager.swift */; };
+		36B2842C25C84B6700264F39 /* ConfirmationViewPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B2842B25C84B6700264F39 /* ConfirmationViewPresenterTests.swift */; };
+		36CFEEB325C040CD005364EA /* SandwichManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CFEEB225C040CD005364EA /* SandwichManagerTests.swift */; };
+		36DFF25825C457B600E0D1BA /* ConfirmationViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DFF25725C457B600E0D1BA /* ConfirmationViewPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +64,6 @@
 		362C757925A618500011C600 /* Lanchonete.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lanchonete.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		362C757C25A618500011C600 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		362C757E25A618500011C600 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		362C758025A618500011C600 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		362C758325A618500011C600 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		362C758525A618500011C600 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		362C758A25A618500011C600 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,6 +80,9 @@
 		362C75EA25AF0ABD0011C600 /* IngredientManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientManager.swift; sourceTree = "<group>"; };
 		362C75F525AF0C900011C600 /* SandwichManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandwichManager.swift; sourceTree = "<group>"; };
 		362C75FA25AF12860011C600 /* ShoppingCartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartManager.swift; sourceTree = "<group>"; };
+		36B2842B25C84B6700264F39 /* ConfirmationViewPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewPresenterTests.swift; sourceTree = "<group>"; };
+		36CFEEB225C040CD005364EA /* SandwichManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandwichManagerTests.swift; sourceTree = "<group>"; };
+		36DFF25725C457B600E0D1BA /* ConfirmationViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,18 +110,9 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		360DD3B325B88A480033C599 /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				360DD3B425B88AD00033C599 /* TableDemoViewPresenter.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
 		360DD3BC25B88FFE0033C599 /* CellViews */ = {
 			isa = PBXGroup;
 			children = (
-				360DD3BE25B890120033C599 /* SandwichView.swift */,
 				360DD3CB25B9A04F0033C599 /* IngredientView.swift */,
 			);
 			path = CellViews;
@@ -126,7 +121,6 @@
 		360DD3BD25B890040033C599 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				360DD3C625B890220033C599 /* SandwichCell.swift */,
 				360DD3D025B9C90E0033C599 /* IngredientCell.swift */,
 			);
 			path = Cells;
@@ -136,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				360DD3D725BB48B10033C599 /* ShoppingCartManagerTests.swift */,
+				36CFEEB225C040CD005364EA /* SandwichManagerTests.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -152,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				360DD3EC25BF41F50033C599 /* TableDemoViewPresenterTests.swift */,
+				36B2842B25C84B6700264F39 /* ConfirmationViewPresenterTests.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -179,11 +175,10 @@
 		362C757B25A618500011C600 /* Lanchonete */ = {
 			isa = PBXGroup;
 			children = (
+				36DFF24F25C455BF00E0D1BA /*  Features */,
 				360DD3BD25B890040033C599 /* Cells */,
 				360DD3BC25B88FFE0033C599 /* CellViews */,
 				362C75E925AF0AAA0011C600 /* Managers */,
-				362C75B025A61AEA0011C600 /* View */,
-				362C75B125A61AEF0011C600 /* Controller */,
 				362C75AF25A61ADC0011C600 /* Model */,
 				362C757C25A618500011C600 /* AppDelegate.swift */,
 				362C757E25A618500011C600 /* SceneDelegate.swift */,
@@ -225,32 +220,83 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		362C75B025A61AEA0011C600 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		362C75B125A61AEF0011C600 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				360DD3B325B88A480033C599 /* Presenter */,
-				362C758025A618500011C600 /* ViewController.swift */,
-				360DD3AE25B877680033C599 /* TableViewController.swift */,
-				360DD3E525BF3BE40033C599 /* ConfirmationViewController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
 		362C75E925AF0AAA0011C600 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
 				362C75EA25AF0ABD0011C600 /* IngredientManager.swift */,
-				362C75F525AF0C900011C600 /* SandwichManager.swift */,
-				362C75FA25AF12860011C600 /* ShoppingCartManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		36DFF24F25C455BF00E0D1BA /*  Features */ = {
+			isa = PBXGroup;
+			children = (
+				36DFF25225C455F100E0D1BA /* Customization */,
+				36DFF25125C455E200E0D1BA /* Confirmation */,
+				36DFF25025C455D300E0D1BA /* Menu */,
+			);
+			path = " Features";
+			sourceTree = "<group>";
+		};
+		36DFF25025C455D300E0D1BA /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				36DFF25425C4560C00E0D1BA /* Presentation */,
+				36DFF25325C4560500E0D1BA /* Data */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		36DFF25125C455E200E0D1BA /* Confirmation */ = {
+			isa = PBXGroup;
+			children = (
+				36DFF25625C4564000E0D1BA /* Presentation */,
+				36DFF25525C4563900E0D1BA /* Data */,
+			);
+			path = Confirmation;
+			sourceTree = "<group>";
+		};
+		36DFF25225C455F100E0D1BA /* Customization */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Customization;
+			sourceTree = "<group>";
+		};
+		36DFF25325C4560500E0D1BA /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				362C75FA25AF12860011C600 /* ShoppingCartManager.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		36DFF25425C4560C00E0D1BA /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				360DD3C625B890220033C599 /* SandwichCell.swift */,
+				360DD3BE25B890120033C599 /* SandwichView.swift */,
+				360DD3AE25B877680033C599 /* TableViewController.swift */,
+				360DD3B425B88AD00033C599 /* TableDemoViewPresenter.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		36DFF25525C4563900E0D1BA /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				362C75F525AF0C900011C600 /* SandwichManager.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		36DFF25625C4564000E0D1BA /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				360DD3E525BF3BE40033C599 /* ConfirmationViewController.swift */,
+				36DFF25725C457B600E0D1BA /* ConfirmationViewPresenter.swift */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -390,9 +436,9 @@
 				362C75EB25AF0ABD0011C600 /* IngredientManager.swift in Sources */,
 				362C75F625AF0C900011C600 /* SandwichManager.swift in Sources */,
 				362C75B325A61B7B0011C600 /* Ingredient.swift in Sources */,
-				362C758125A618500011C600 /* ViewController.swift in Sources */,
 				360DD3D125B9C90E0033C599 /* IngredientCell.swift in Sources */,
 				360DD3AF25B877680033C599 /* TableViewController.swift in Sources */,
+				36DFF25825C457B600E0D1BA /* ConfirmationViewPresenter.swift in Sources */,
 				360DD3C725B890220033C599 /* SandwichCell.swift in Sources */,
 				362C75C025A61D3F0011C600 /* Sandwich.swift in Sources */,
 				362C757D25A618500011C600 /* AppDelegate.swift in Sources */,
@@ -407,6 +453,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				362C759425A618500011C600 /* LanchoneteTests.swift in Sources */,
+				36CFEEB325C040CD005364EA /* SandwichManagerTests.swift in Sources */,
+				36B2842C25C84B6700264F39 /* ConfirmationViewPresenterTests.swift in Sources */,
 				360DD3D825BB48B10033C599 /* ShoppingCartManagerTests.swift in Sources */,
 				360DD3ED25BF41F50033C599 /* TableDemoViewPresenterTests.swift in Sources */,
 			);

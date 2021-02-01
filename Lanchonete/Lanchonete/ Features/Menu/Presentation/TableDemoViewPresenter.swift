@@ -65,7 +65,7 @@ public class TableDemoPresenter {
     //MARK: - Cell Configuration
     func configureMenuSandwichView(_ view: SandwichView, forIndex index: Int){
         let sandwich = menuSandwiches[index]
-        view.display(sandwich: sandwichManager.getSandwichName(type: sandwich))
+        view.display(sandwich: "PLACEHOLDER REMOVER")
         view.display(price: String(sandwichManager.getSandwichPrice(type: sandwich)))
     }
     

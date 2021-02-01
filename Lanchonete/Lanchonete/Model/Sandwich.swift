@@ -5,28 +5,50 @@
 //  Created by vera.dias on 1/6/21.
 //
 
-import Foundation
+import UIKit
 public enum SandwichType:  String, CaseIterable {
+    
     case xBacon = "X-Bacon"
     case xEgg = "X-Egg"
     case xBurguer = "X-Burguer"
     case xEggBacon = "X-EggBacon"
     
-    var ingredientsInSandwich: [IngredientInSandwich] {
+    var ingredientsInSandwich: [Ingredient] {
         switch self {
         case .xBacon:
-            return [IngredientInSandwich(ingredient: .hamburguer, quantity: 1),
-                    IngredientInSandwich(ingredient: .cheese, quantity: 1),
-                    IngredientInSandwich(ingredient: .bacon, quantity: 1)]
+            return [.hamburguer,.cheese,.bacon]
         case .xBurguer:
-            return [IngredientInSandwich(ingredient: .hamburguer, quantity: 1), IngredientInSandwich(ingredient: .cheese, quantity: 1)]
+            return [.hamburguer,.cheese]
         case .xEgg:
-            return [IngredientInSandwich(ingredient: .hamburguer, quantity:1),IngredientInSandwich(ingredient: .cheese, quantity: 1),IngredientInSandwich(ingredient: .egg, quantity: 1)]
+            return [.hamburguer,.cheese,.egg]
         case .xEggBacon:
-            return [IngredientInSandwich(ingredient: .egg, quantity: 1),
-                    IngredientInSandwich(ingredient: .bacon, quantity: 1),
-                    IngredientInSandwich(ingredient: .hamburguer, quantity: 1),
-                    IngredientInSandwich(ingredient:.cheese, quantity: 1)]
+            return [.hamburguer,.cheese,.egg,.bacon]
+        }
+    }
+    
+    var name: String {
+        switch self {
+        case .xBacon:
+            return "X-Bacon"
+        case .xBurguer:
+            return "X-Burguer"
+        case .xEgg:
+            return "X-Egg"
+        case .xEggBacon:
+            return "X-EggBacon"
+        }
+    }
+    
+    var image: UIImage {
+        switch self {
+        case .xBacon:
+            return UIImage(named: "X-Bacon")!
+        case .xEgg:
+            return UIImage(named: "X-Egg")!
+        case .xBurguer:
+            return UIImage(named: "X-Burguer")!
+        case .xEggBacon:
+            return UIImage(named: "X-EggBacon")!
         }
     }
     
@@ -35,11 +57,12 @@ public enum SandwichType:  String, CaseIterable {
 public struct Sandwich: Equatable {
     let type: SandwichType
     
+    
     func price() -> Double {
         var total:Double = 0.0
         
         for ingredient in type.ingredientsInSandwich {
-            total += ingredient.total()
+            total += ingredient.price
         }
         
         return total
