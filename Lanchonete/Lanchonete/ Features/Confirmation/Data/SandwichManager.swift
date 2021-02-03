@@ -5,19 +5,24 @@
 //  Created by vera.dias on 1/13/21.
 //
 
-import UIKit
-
+import Foundation
 public class SandwichManager {
     var sandwichType: SandwichType?
     var ingredients: [Ingredient] = []
     
-    init(with sandwichType: SandwichType? = nil) {
+    init(with sandwichType: SandwichType? = nil, ingredients: [Ingredient]? = nil) {
         guard let sandwich = sandwichType else {
+            guard let ingredientsFinal = ingredients else {
+                return
+            }
+            self.ingredients = ingredientsFinal
             return
         }
         self.sandwichType = sandwich
+        
         self.ingredients = sandwich.ingredientsInSandwich
     }
+    
     
     func getSandwichTypes () -> [SandwichType] {
         return SandwichType.allCases
