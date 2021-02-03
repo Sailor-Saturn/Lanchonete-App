@@ -24,7 +24,10 @@ final class ConfirmationViewController: UIViewController {
         super.viewDidLoad()
         sandwichTitle.text = presenter?.getSandwichName()
         sandwichIngredientList.text = presenter?.getIngredientList()
-        sandwichImage.image = presenter?.getSandwichImage()
+        if let code = presenter?.getSandwichCode(),
+                   let image = UIImage(named: code) {
+                    sandwichImage.image = image
+                }
     }
     
     @IBAction func plusButtonTapped(_ sender: UIButton) {

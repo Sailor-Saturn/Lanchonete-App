@@ -5,7 +5,7 @@
 //  Created by vera.dias on 1/29/21.
 //
 
-import UIKit
+import Foundation
 
 class ConfirmationViewPresenter {
     let sandwichManager: SandwichManager
@@ -36,7 +36,7 @@ class ConfirmationViewPresenter {
         return String (quantity)
     }
     
-    func getSandwichImage() -> UIImage {
-        return sandwichManager.getImage()
+    func getSandwichCode() -> String {
+        return sandwichManager.getSandwichCode()
     }
 }

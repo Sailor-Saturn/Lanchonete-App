@@ -5,7 +5,8 @@
 //  Created by vera.dias on 1/6/21.
 //
 
-import UIKit
+import Foundation
+
 public enum SandwichType:  String, CaseIterable {
     
     case xBacon = "X-Bacon"
@@ -39,16 +40,16 @@ public enum SandwichType:  String, CaseIterable {
         }
     }
     
-    var image: UIImage {
+    var code: String {
         switch self {
         case .xBacon:
-            return UIImage(named: "X-Bacon")!
+            return "X-Bacon"
         case .xEgg:
-            return UIImage(named: "X-Egg")!
+            return "X-Egg"
         case .xBurguer:
-            return UIImage(named: "X-Burguer")!
+            return "X-Burguer"
         case .xEggBacon:
-            return UIImage(named: "X-EggBacon")!
+            return "X-EggBacon"
         }
     }
     

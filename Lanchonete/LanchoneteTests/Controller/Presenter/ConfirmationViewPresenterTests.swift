@@ -6,7 +6,7 @@
 //
 
 import XCTest
-import UIKit
+
 @testable import Lanchonete
 
 class ConfirmationViewPresenterTest: XCTestCase {
@@ -74,7 +74,7 @@ class ConfirmationViewPresenterTest: XCTestCase {
         
         let confirmationViewPresenter = ConfirmationViewPresenter(sandwichManager: sandwichManager)
         
-        XCTAssertEqual(confirmationViewPresenter.getSandwichImage(), UIImage(named: "X-Bacon"))
+        XCTAssertEqual(confirmationViewPresenter.getSandwichCode(), "X-Bacon")
     }
     
     func test_GIVEN_a_customized_sandwich_WHEN_I_click_on_the_sandwich_THEN_I_should_see_the_specified_image() {
@@ -82,6 +82,6 @@ class ConfirmationViewPresenterTest: XCTestCase {
         
         let confirmationViewPresenter = ConfirmationViewPresenter(sandwichManager: sandwichManager)
         
-        XCTAssertEqual(confirmationViewPresenter.getSandwichImage(), UIImage(named: "X-Custom"))
+        XCTAssertEqual(confirmationViewPresenter.getSandwichCode(),"X-Custom")
     }
 }

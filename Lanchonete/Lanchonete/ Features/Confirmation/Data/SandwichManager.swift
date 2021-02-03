@@ -70,11 +70,15 @@ public class SandwichManager {
         return "Ingredients: " + joinedIngredients + "."
     }
     
-    func getImage() -> UIImage {
-        if let sandwichImage = sandwichType?.image {
+    func getSandwichCode() -> String {
+        if let sandwichImage = sandwichType?.code {
             return sandwichImage
         }else {
-            return UIImage(named:"X-Custom")!
+            return "X-Custom"
         }
+    }
+    
+    func removeAll(){
+        ingredients.removeAll()
     }
 }

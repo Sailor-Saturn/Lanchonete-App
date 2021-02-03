@@ -23,13 +23,13 @@ class SandwichManagerTests: XCTestCase {
     func test_GIVEN_a_menu_sandwich_WHEN_I_add_ingredient_THEN_the_ingredient_list_is_updated(){
         //Given
         let sandwichManager = SandwichManager(with: .xBacon)
-
-        //When
-        sandwichManager.addIngredient(.egg)
-
+        
         let xBacon = SandwichType.xBacon
         var expectedResult = xBacon.ingredientsInSandwich
         expectedResult.append(.egg)
+
+        //When
+        sandwichManager.addIngredient(.egg)
 
         //Then
         XCTAssertEqual(sandwichManager.getIngredients(),expectedResult)
@@ -139,10 +139,7 @@ class SandwichManagerTests: XCTestCase {
         sandwichManager.addIngredient(.bacon)
         sandwichManager.addIngredient(.bacon)
         
-        sandwichManager.removeIngredient(.egg)
-        sandwichManager.removeIngredient(.egg)
-        sandwichManager.removeIngredient(.bacon)
-        sandwichManager.removeIngredient(.bacon)
+        sandwichManager.removeAll()
         
         //Then
         XCTAssertEqual(sandwichManager.getIngredients(), [])
