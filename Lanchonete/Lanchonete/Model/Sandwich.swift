@@ -6,7 +6,9 @@
 //
 
 import Foundation
+
 public enum SandwichType:  String, CaseIterable {
+    
     case xBacon = "X-Bacon"
     case xEgg = "X-Egg"
     case xBurguer = "X-Burguer"
@@ -25,10 +27,37 @@ public enum SandwichType:  String, CaseIterable {
         }
     }
     
+    var name: String {
+        switch self {
+        case .xBacon:
+            return "X-Bacon"
+        case .xBurguer:
+            return "X-Burguer"
+        case .xEgg:
+            return "X-Egg"
+        case .xEggBacon:
+            return "X-EggBacon"
+        }
+    }
+    
+    var code: String {
+        switch self {
+        case .xBacon:
+            return "X-Bacon"
+        case .xEgg:
+            return "X-Egg"
+        case .xBurguer:
+            return "X-Burguer"
+        case .xEggBacon:
+            return "X-EggBacon"
+        }
+    }
+    
 }
 
 public struct Sandwich: Equatable {
     let type: SandwichType
+    
     
     func price() -> Double {
         var total:Double = 0.0

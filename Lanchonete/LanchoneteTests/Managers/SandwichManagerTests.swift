@@ -23,13 +23,13 @@ class SandwichManagerTests: XCTestCase {
     func test_GIVEN_a_menu_sandwich_WHEN_I_add_ingredient_THEN_the_ingredient_list_is_updated(){
         //Given
         let sandwichManager = SandwichManager(with: .xBacon)
-
-        //When
-        sandwichManager.addIngredient(.egg)
-
+        
         let xBacon = SandwichType.xBacon
         var expectedResult = xBacon.ingredientsInSandwich
         expectedResult.append(.egg)
+
+        //When
+        sandwichManager.addIngredient(.egg)
 
         //Then
         XCTAssertEqual(sandwichManager.getIngredients(),expectedResult)
@@ -85,11 +85,10 @@ class SandwichManagerTests: XCTestCase {
     
     func test_GIVEN_a_customized_sandwich_WHEN_I_add_ingredient_THEN_the_price_is_updated(){
         //Given
-        let sandwichManager = SandwichManager()
+        let expectedIngredients: [Ingredient] = [.egg,.egg]
+        let sandwichManager = SandwichManager(ingredients: expectedIngredients)
         
         //When
-        sandwichManager.addIngredient(.egg)
-        sandwichManager.addIngredient(.egg)
         sandwichManager.addIngredient(.cheese)
         
         //Then
@@ -98,13 +97,10 @@ class SandwichManagerTests: XCTestCase {
     
     func test_GIVEN_a_customized_sandwich_WHEN_I_add_duplicated_ingredients_and_remove_one_THEN_the_price_is_updated(){
         //Given
-        let sandwichManager = SandwichManager()
+        let expectedIngredients: [Ingredient] = [.egg,.egg,.bacon]
+        let sandwichManager = SandwichManager(ingredients: expectedIngredients)
         
         //When
-        sandwichManager.addIngredient(.egg)
-        sandwichManager.addIngredient(.egg)
-        sandwichManager.addIngredient(.bacon)
-        
         sandwichManager.removeIngredient(.egg)
         
         //Then
@@ -113,36 +109,23 @@ class SandwichManagerTests: XCTestCase {
     
     func test_GIVEN_a_customized_sandwich_WHEN_I_add_multiple_ingredients_and_remove_them_all_THEN_the_price_should_be_0(){
         //Given
-        let sandwichManager = SandwichManager()
+        let expectedIngredients: [Ingredient] = [.egg,.egg,.bacon,.bacon]
+        let sandwichManager = SandwichManager(ingredients: expectedIngredients)
         
         //When
-        sandwichManager.addIngredient(.egg)
-        sandwichManager.addIngredient(.egg)
-        sandwichManager.addIngredient(.bacon)
-        sandwichManager.addIngredient(.bacon)
+        sandwichManager.removeAll()
         
-        sandwichManager.removeIngredient(.egg)
-        sandwichManager.removeIngredient(.egg)
-        sandwichManager.removeIngredient(.bacon)
-        sandwichManager.removeIngredient(.bacon)
         //Then
         XCTAssertEqual(sandwichManager.getPrice(), 0.0)
     }
     
     func test_GIVEN_a_customized_sandwich_WHEN_I_add_multiple_ingredients_and_remove_them_all_THEN_the_ingredient_list_should_be_0(){
         //Given
-        let sandwichManager = SandwichManager()
+        let expectedIngredients: [Ingredient] = [.egg,.egg,.bacon,.bacon]
+        let sandwichManager = SandwichManager(ingredients: expectedIngredients)
         
         //When
-        sandwichManager.addIngredient(.egg)
-        sandwichManager.addIngredient(.egg)
-        sandwichManager.addIngredient(.bacon)
-        sandwichManager.addIngredient(.bacon)
-        
-        sandwichManager.removeIngredient(.egg)
-        sandwichManager.removeIngredient(.egg)
-        sandwichManager.removeIngredient(.bacon)
-        sandwichManager.removeIngredient(.bacon)
+        sandwichManager.removeAll()
         
         //Then
         XCTAssertEqual(sandwichManager.getIngredients(), [])
