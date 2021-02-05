@@ -18,12 +18,12 @@ public protocol TableDemoView: class {
 
 public class TableDemoPresenter {
     public var view: TableDemoView?
-    let sandwichManager = SandwichManager()
+    let menuManager = MenuManager()
     let ingredientManager = IngredientManager()
     
     // Get all the sandwiches from the menu
     lazy var menuSandwiches: [SandwichType] = {
-        return sandwichManager.getSandwichTypes()
+        return menuManager.getSandwichTypes()
     }()
     
     //Get all Ingredients from the menu
@@ -65,8 +65,8 @@ public class TableDemoPresenter {
     //MARK: - Cell Configuration
     func configureMenuSandwichView(_ view: SandwichView, forIndex index: Int){
         let sandwich = menuSandwiches[index]
-        view.display(sandwich: "PLACEHOLDER REMOVER")
-        view.display(price: String(sandwichManager.getSandwichPrice(type: sandwich)))
+        view.display(sandwich: menuManager.getSandwichName(type: sandwich))
+        view.display(price: String(menuManager.getSandwichPrice(type: sandwich)))
     }
     
     func configureIngredientView(_ view: IngredientView, forIndex index: Int){
