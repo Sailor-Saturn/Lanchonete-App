@@ -29,6 +29,8 @@
 		362C75EB25AF0ABD0011C600 /* IngredientManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C75EA25AF0ABD0011C600 /* IngredientManager.swift */; };
 		362C75F625AF0C900011C600 /* SandwichManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C75F525AF0C900011C600 /* SandwichManager.swift */; };
 		362C75FB25AF12860011C600 /* ShoppingCartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C75FA25AF12860011C600 /* ShoppingCartManager.swift */; };
+		363067B725CC0B010066EE6F /* MenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363067B625CC0B010066EE6F /* MenuManager.swift */; };
+		363067BC25CC10E00066EE6F /* MenuManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363067BB25CC10E00066EE6F /* MenuManagerTests.swift */; };
 		36B2842C25C84B6700264F39 /* ConfirmationViewPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B2842B25C84B6700264F39 /* ConfirmationViewPresenterTests.swift */; };
 		36CFEEB325C040CD005364EA /* SandwichManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CFEEB225C040CD005364EA /* SandwichManagerTests.swift */; };
 		36DFF25825C457B600E0D1BA /* ConfirmationViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DFF25725C457B600E0D1BA /* ConfirmationViewPresenter.swift */; };
@@ -80,6 +82,8 @@
 		362C75EA25AF0ABD0011C600 /* IngredientManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientManager.swift; sourceTree = "<group>"; };
 		362C75F525AF0C900011C600 /* SandwichManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandwichManager.swift; sourceTree = "<group>"; };
 		362C75FA25AF12860011C600 /* ShoppingCartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartManager.swift; sourceTree = "<group>"; };
+		363067B625CC0B010066EE6F /* MenuManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuManager.swift; sourceTree = "<group>"; };
+		363067BB25CC10E00066EE6F /* MenuManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuManagerTests.swift; sourceTree = "<group>"; };
 		36B2842B25C84B6700264F39 /* ConfirmationViewPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewPresenterTests.swift; sourceTree = "<group>"; };
 		36CFEEB225C040CD005364EA /* SandwichManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandwichManagerTests.swift; sourceTree = "<group>"; };
 		36DFF25725C457B600E0D1BA /* ConfirmationViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewPresenter.swift; sourceTree = "<group>"; };
@@ -131,6 +135,7 @@
 			children = (
 				360DD3D725BB48B10033C599 /* ShoppingCartManagerTests.swift */,
 				36CFEEB225C040CD005364EA /* SandwichManagerTests.swift */,
+				363067BB25CC10E00066EE6F /* MenuManagerTests.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -267,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				362C75FA25AF12860011C600 /* ShoppingCartManager.swift */,
+				363067B625CC0B010066EE6F /* MenuManager.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -440,6 +446,7 @@
 				360DD3AF25B877680033C599 /* TableViewController.swift in Sources */,
 				36DFF25825C457B600E0D1BA /* ConfirmationViewPresenter.swift in Sources */,
 				360DD3C725B890220033C599 /* SandwichCell.swift in Sources */,
+				363067B725CC0B010066EE6F /* MenuManager.swift in Sources */,
 				362C75C025A61D3F0011C600 /* Sandwich.swift in Sources */,
 				362C757D25A618500011C600 /* AppDelegate.swift in Sources */,
 				362C75BB25A61CE20011C600 /* IngredientInSandwich.swift in Sources */,
@@ -452,6 +459,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				363067BC25CC10E00066EE6F /* MenuManagerTests.swift in Sources */,
 				362C759425A618500011C600 /* LanchoneteTests.swift in Sources */,
 				36CFEEB325C040CD005364EA /* SandwichManagerTests.swift in Sources */,
 				36B2842C25C84B6700264F39 /* ConfirmationViewPresenterTests.swift in Sources */,

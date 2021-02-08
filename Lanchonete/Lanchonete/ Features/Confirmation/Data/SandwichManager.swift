@@ -23,21 +23,12 @@ public class SandwichManager {
         self.ingredients = sandwich.ingredientsInSandwich
     }
     
-    
-    func getSandwichTypes () -> [SandwichType] {
-        return SandwichType.allCases
-    }
-    
     func getSandwichName() -> String {
         if let sandwichName = sandwichType?.name {
             return sandwichName
         }else {
             return "X-Custom"
         }
-    }
-    
-    func getSandwichPrice(type: SandwichType) -> Double {
-        return Sandwich(type: type).price()
     }
     
     func addIngredient(_ ingredient: Ingredient){
