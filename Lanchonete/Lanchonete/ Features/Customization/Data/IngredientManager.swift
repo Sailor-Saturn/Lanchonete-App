@@ -8,6 +8,16 @@
 import Foundation
 
 public class IngredientManager {
+    var ingredients: [Ingredient]?
+    
+    init(with ingredients: [Ingredient]? = nil){
+        guard let ingredientsFinal = ingredients else {
+            return
+        }
+        self.ingredients = ingredientsFinal
+        return
+    }
+    
     public func getIngredientList() -> [Ingredient] {
         return Ingredient.allCases
     }

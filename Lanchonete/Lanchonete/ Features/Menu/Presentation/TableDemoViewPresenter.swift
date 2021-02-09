@@ -18,7 +18,6 @@ public protocol TableDemoView: class {
 public class TableDemoPresenter {
     public var view: TableDemoView?
     let menuManager = MenuManager()
-    let ingredientManager = IngredientManager()
     
     // Get all the sandwiches from the menu
     lazy var menuSandwiches: [SandwichType] = {

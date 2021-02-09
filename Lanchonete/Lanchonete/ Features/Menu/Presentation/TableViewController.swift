@@ -6,10 +6,6 @@
 //
 
 import UIKit
-enum Segues {
-    static let listToConfirmation = "listToConfirmation"
-}
-
 
 class TableViewController: UITableViewController, TableDemoView {
     let presenter = TableDemoPresenter()
@@ -57,6 +53,7 @@ class TableViewController: UITableViewController, TableDemoView {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
+        
         guard let confirmationViewController = segue.destination as? ConfirmationViewController,
               let sandwichType = sender as? SandwichType  else {
             return

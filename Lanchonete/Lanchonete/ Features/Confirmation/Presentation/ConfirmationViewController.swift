@@ -18,16 +18,14 @@ final class ConfirmationViewController: UIViewController {
     @IBOutlet weak var sandwichImage: UIImageView!
     @IBOutlet weak var countLabel: UILabel!
     
-    var sandwichType: SandwichType?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         sandwichTitle.text = presenter?.getSandwichName()
         sandwichIngredientList.text = presenter?.getIngredientList()
         if let code = presenter?.getSandwichCode(),
-                   let image = UIImage(named: code) {
-                    sandwichImage.image = image
-                }
+           let image = UIImage(named: code) {
+            sandwichImage.image = image
+        }
     }
     
     @IBAction func plusButtonTapped(_ sender: UIButton) {
@@ -39,12 +37,27 @@ final class ConfirmationViewController: UIViewController {
     }
     
     @IBAction func personalizeButtonTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: Segues.confirmationToCustomization, sender: presenter?.getSandwichIngredients())
     }
     
     @IBAction func addToShoppingCartButtonTapped(_ sender: Any) {
+        
     }
     
     @IBAction func goBackButtonTapped(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        super.prepare(for: segue, sender: sender)
+        
+        guard let customizationViewController =
+                segue.destination as?
+                CustomizationViewController,
+                let ingredients = sender as? [Ingredient] else {
+            return
+        }
+        
+        customizationViewController.presenter = CustomizationViewPresenter(ingredientManager: IngredientManager(with: ingredients))
     }
 }

@@ -31,6 +31,9 @@
 		362C75FB25AF12860011C600 /* ShoppingCartManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C75FA25AF12860011C600 /* ShoppingCartManager.swift */; };
 		363067B725CC0B010066EE6F /* MenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363067B625CC0B010066EE6F /* MenuManager.swift */; };
 		363067BC25CC10E00066EE6F /* MenuManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363067BB25CC10E00066EE6F /* MenuManagerTests.swift */; };
+		3679FF6425D2A4F200A63792 /* CustomizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3679FF6325D2A4F200A63792 /* CustomizationViewController.swift */; };
+		3679FF6C25D2A50400A63792 /* CustomizationViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3679FF6B25D2A50400A63792 /* CustomizationViewPresenter.swift */; };
+		3679FF7725D2DA3B00A63792 /* SegueName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3679FF7625D2DA3B00A63792 /* SegueName.swift */; };
 		36B2842C25C84B6700264F39 /* ConfirmationViewPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B2842B25C84B6700264F39 /* ConfirmationViewPresenterTests.swift */; };
 		36CFEEB325C040CD005364EA /* SandwichManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CFEEB225C040CD005364EA /* SandwichManagerTests.swift */; };
 		36DFF25825C457B600E0D1BA /* ConfirmationViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DFF25725C457B600E0D1BA /* ConfirmationViewPresenter.swift */; };
@@ -84,6 +87,9 @@
 		362C75FA25AF12860011C600 /* ShoppingCartManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartManager.swift; sourceTree = "<group>"; };
 		363067B625CC0B010066EE6F /* MenuManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuManager.swift; sourceTree = "<group>"; };
 		363067BB25CC10E00066EE6F /* MenuManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuManagerTests.swift; sourceTree = "<group>"; };
+		3679FF6325D2A4F200A63792 /* CustomizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizationViewController.swift; sourceTree = "<group>"; };
+		3679FF6B25D2A50400A63792 /* CustomizationViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizationViewPresenter.swift; sourceTree = "<group>"; };
+		3679FF7625D2DA3B00A63792 /* SegueName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueName.swift; sourceTree = "<group>"; };
 		36B2842B25C84B6700264F39 /* ConfirmationViewPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewPresenterTests.swift; sourceTree = "<group>"; };
 		36CFEEB225C040CD005364EA /* SandwichManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandwichManagerTests.swift; sourceTree = "<group>"; };
 		36DFF25725C457B600E0D1BA /* ConfirmationViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewPresenter.swift; sourceTree = "<group>"; };
@@ -114,22 +120,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		360DD3BC25B88FFE0033C599 /* CellViews */ = {
-			isa = PBXGroup;
-			children = (
-				360DD3CB25B9A04F0033C599 /* IngredientView.swift */,
-			);
-			path = CellViews;
-			sourceTree = "<group>";
-		};
-		360DD3BD25B890040033C599 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				360DD3D025B9C90E0033C599 /* IngredientCell.swift */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
 		360DD3D625BB48990033C599 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,9 +171,6 @@
 			isa = PBXGroup;
 			children = (
 				36DFF24F25C455BF00E0D1BA /*  Features */,
-				360DD3BD25B890040033C599 /* Cells */,
-				360DD3BC25B88FFE0033C599 /* CellViews */,
-				362C75E925AF0AAA0011C600 /* Managers */,
 				362C75AF25A61ADC0011C600 /* Model */,
 				362C757C25A618500011C600 /* AppDelegate.swift */,
 				362C757E25A618500011C600 /* SceneDelegate.swift */,
@@ -221,16 +208,28 @@
 				362C75BA25A61CE20011C600 /* IngredientInSandwich.swift */,
 				362C75BF25A61D3F0011C600 /* Sandwich.swift */,
 				362C75DE25A8BC6F0011C600 /* PartialOrder.swift */,
+				3679FF7625D2DA3B00A63792 /* SegueName.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		362C75E925AF0AAA0011C600 /* Managers */ = {
+		3679FF6125D2A3DA00A63792 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				360DD3CB25B9A04F0033C599 /* IngredientView.swift */,
+				360DD3D025B9C90E0033C599 /* IngredientCell.swift */,
+				3679FF6325D2A4F200A63792 /* CustomizationViewController.swift */,
+				3679FF6B25D2A50400A63792 /* CustomizationViewPresenter.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		3679FF6225D2A3E700A63792 /* Data */ = {
 			isa = PBXGroup;
 			children = (
 				362C75EA25AF0ABD0011C600 /* IngredientManager.swift */,
 			);
-			path = Managers;
+			path = Data;
 			sourceTree = "<group>";
 		};
 		36DFF24F25C455BF00E0D1BA /*  Features */ = {
@@ -264,6 +263,8 @@
 		36DFF25225C455F100E0D1BA /* Customization */ = {
 			isa = PBXGroup;
 			children = (
+				3679FF6125D2A3DA00A63792 /* Presentation */,
+				3679FF6225D2A3E700A63792 /* Data */,
 			);
 			path = Customization;
 			sourceTree = "<group>";
@@ -435,14 +436,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				360DD3BF25B890120033C599 /* SandwichView.swift in Sources */,
+				3679FF6425D2A4F200A63792 /* CustomizationViewController.swift in Sources */,
 				362C75DF25A8BC6F0011C600 /* PartialOrder.swift in Sources */,
 				360DD3E625BF3BE40033C599 /* ConfirmationViewController.swift in Sources */,
+				3679FF7725D2DA3B00A63792 /* SegueName.swift in Sources */,
 				362C75FB25AF12860011C600 /* ShoppingCartManager.swift in Sources */,
 				360DD3CC25B9A04F0033C599 /* IngredientView.swift in Sources */,
 				362C75EB25AF0ABD0011C600 /* IngredientManager.swift in Sources */,
 				362C75F625AF0C900011C600 /* SandwichManager.swift in Sources */,
 				362C75B325A61B7B0011C600 /* Ingredient.swift in Sources */,
 				360DD3D125B9C90E0033C599 /* IngredientCell.swift in Sources */,
+				3679FF6C25D2A50400A63792 /* CustomizationViewPresenter.swift in Sources */,
 				360DD3AF25B877680033C599 /* TableViewController.swift in Sources */,
 				36DFF25825C457B600E0D1BA /* ConfirmationViewPresenter.swift in Sources */,
 				360DD3C725B890220033C599 /* SandwichCell.swift in Sources */,
