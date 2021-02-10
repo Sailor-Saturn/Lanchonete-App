@@ -7,9 +7,6 @@
 
 import Foundation
 
-public enum Sections: CaseIterable {
-    case menuSandwiches
-}
 public protocol TableDemoView: class {
     func reloadData()
     func navigateToConfirmationScreen(sandwich: SandwichType)
@@ -25,7 +22,7 @@ public class TableDemoPresenter {
     }()
     
     func numberOfSections() -> Int {
-        return Sections.allCases.count
+        return 1
     }
     
     func titleForSection() -> String {
