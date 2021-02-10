@@ -11,7 +11,8 @@ class IngredientCell: UITableViewCell, IngredientView {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var ingredientNameLabel: UILabel!
     @IBOutlet weak var quantity: UILabel!
-    var ingredientQuantity: Int = 0
+    
+    let ingredientCellManager = IngredientCellManager()
     
     func display(ingredient: String) {
         ingredientNameLabel.text = ingredient
@@ -23,7 +24,7 @@ class IngredientCell: UITableViewCell, IngredientView {
     
     func display(quantityValue: String) {
         quantity.text = quantityValue
-        ingredientQuantity = Int (quantityValue) ?? 0
+        ingredientCellManager.setQuantity(value: quantityValue)
     }
     
     override func prepareForReuse() {
@@ -31,15 +32,13 @@ class IngredientCell: UITableViewCell, IngredientView {
     }
     
     @IBAction func decreaseQuantity(_ sender: UIButton) {
-        if(ingredientQuantity != 0) {
-            ingredientQuantity -= 1
-        }
-        display(quantityValue: String (ingredientQuantity))
+        ingredientCellManager.decreaseQuantity()
+        display(quantityValue: ingredientCellManager.getQuantity())
     }
     
     
     @IBAction func incrementQuantity(_ sender: UIButton) {
-        ingredientQuantity += 1
-        display(quantityValue: String (ingredientQuantity))
+        ingredientCellManager.incrementQuantity()
+        display(quantityValue: ingredientCellManager.getQuantity())
     }
 }
