@@ -34,6 +34,7 @@
 		3679FF6425D2A4F200A63792 /* CustomizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3679FF6325D2A4F200A63792 /* CustomizationViewController.swift */; };
 		3679FF6C25D2A50400A63792 /* CustomizationViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3679FF6B25D2A50400A63792 /* CustomizationViewPresenter.swift */; };
 		3679FF7725D2DA3B00A63792 /* SegueName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3679FF7625D2DA3B00A63792 /* SegueName.swift */; };
+		3679FF8525D360D900A63792 /* AllIngredientsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3679FF8425D360D900A63792 /* AllIngredientsManager.swift */; };
 		36B2842C25C84B6700264F39 /* ConfirmationViewPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B2842B25C84B6700264F39 /* ConfirmationViewPresenterTests.swift */; };
 		36CFEEB325C040CD005364EA /* SandwichManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CFEEB225C040CD005364EA /* SandwichManagerTests.swift */; };
 		36DFF25825C457B600E0D1BA /* ConfirmationViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DFF25725C457B600E0D1BA /* ConfirmationViewPresenter.swift */; };
@@ -90,6 +91,7 @@
 		3679FF6325D2A4F200A63792 /* CustomizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizationViewController.swift; sourceTree = "<group>"; };
 		3679FF6B25D2A50400A63792 /* CustomizationViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizationViewPresenter.swift; sourceTree = "<group>"; };
 		3679FF7625D2DA3B00A63792 /* SegueName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueName.swift; sourceTree = "<group>"; };
+		3679FF8425D360D900A63792 /* AllIngredientsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllIngredientsManager.swift; sourceTree = "<group>"; };
 		36B2842B25C84B6700264F39 /* ConfirmationViewPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewPresenterTests.swift; sourceTree = "<group>"; };
 		36CFEEB225C040CD005364EA /* SandwichManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandwichManagerTests.swift; sourceTree = "<group>"; };
 		36DFF25725C457B600E0D1BA /* ConfirmationViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewPresenter.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				362C75EA25AF0ABD0011C600 /* IngredientManager.swift */,
+				3679FF8425D360D900A63792 /* AllIngredientsManager.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 				3679FF6C25D2A50400A63792 /* CustomizationViewPresenter.swift in Sources */,
 				360DD3AF25B877680033C599 /* TableViewController.swift in Sources */,
 				36DFF25825C457B600E0D1BA /* ConfirmationViewPresenter.swift in Sources */,
+				3679FF8525D360D900A63792 /* AllIngredientsManager.swift in Sources */,
 				360DD3C725B890220033C599 /* SandwichCell.swift in Sources */,
 				363067B725CC0B010066EE6F /* MenuManager.swift in Sources */,
 				362C75C025A61D3F0011C600 /* Sandwich.swift in Sources */,

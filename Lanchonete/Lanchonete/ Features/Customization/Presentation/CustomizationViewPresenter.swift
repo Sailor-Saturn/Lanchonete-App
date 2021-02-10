@@ -5,7 +5,6 @@
 //  Created by vera.dias on 2/9/21.
 //
 
-
 import Foundation
 
 public protocol CustomizationView: class {
@@ -13,6 +12,7 @@ public protocol CustomizationView: class {
 }
 public class CustomizationViewPresenter {
     let ingredientManager: IngredientManager
+    let allIngredientManager = AllIngredientsManager()
     
     public var view: CustomizationView?
     
@@ -21,11 +21,11 @@ public class CustomizationViewPresenter {
     }
     // Get all the sandwiches from the menu
     lazy var ingredients: [Ingredient] = {
-        return ingredientManager.getIngredientList()
+        return allIngredientManager.getIngredientList()
     }()
     
     func numberOfSections() -> Int {
-        return Sections.allCases.count
+        return 1
     }
     
     func titleForSection() -> String {
@@ -39,8 +39,17 @@ public class CustomizationViewPresenter {
     //MARK: - Cell Configuration
     func configureIngredientView(_ view: IngredientView, forIndex index: Int){
         let ingredient = ingredients[index]
-        view.display(price: ingredientManager.getIngredientPrice(ingredient: ingredient))
-        view.display(ingredient: ingredientManager.getIngredientName(ingredient: ingredient))
+        view.display(price: allIngredientManager.getIngredientPrice(ingredient: ingredient))
+        view.display(ingredient: allIngredientManager.getIngredientName(ingredient: ingredient))
+        configureQuantity(view: view, ingredient: ingredient)
+    }
+    
+    func configureQuantity(view: IngredientView,ingredient: Ingredient) {
+        if(ingredientManager.containsIngredient(ingredient: ingredient)){
+            view.display(quantityValue: "1")
+        }else {
+            view.display(quantityValue: "0")
+        }
     }
     
 }

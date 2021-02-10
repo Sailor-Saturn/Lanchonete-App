@@ -18,15 +18,10 @@ public class IngredientManager {
         return
     }
     
-    public func getIngredientList() -> [Ingredient] {
-        return Ingredient.allCases
-    }
-    
-    public func getIngredientPrice(ingredient: Ingredient) -> String{
-        return String (ingredient.price)
-    }
-    
-    public func getIngredientName(ingredient: Ingredient)-> String{
-        return ingredient.name
+    public func containsIngredient(ingredient: Ingredient) -> Bool {
+        if let ingredientsFinal = self.ingredients {
+            return ingredientsFinal.contains(ingredient)
+        }
+        return false
     }
 }
