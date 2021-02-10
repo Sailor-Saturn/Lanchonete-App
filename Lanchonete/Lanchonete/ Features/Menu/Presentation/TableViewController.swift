@@ -7,7 +7,7 @@
 
 import UIKit
 enum Segues {
- static let listToConfirmation = "listToConfirmation"
+    static let listToConfirmation = "listToConfirmation"
 }
 
 
@@ -29,31 +29,21 @@ class TableViewController: UITableViewController, TableDemoView {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return presenter.titleForSection(section)
+        return presenter.titleForSection()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.numberOfRowsInSection(section)
+        return presenter.numberOfRowsInSection()
     }
     
     //MARK: - Cell configuration
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let sectionHeaders = presenter.getSectionHeaders()
-        let header = sectionHeaders[indexPath.section]
         
-        switch header {
-        case .menuSandwiches:
-            if let sandwichCell = tableView.dequeueReusableCell(withIdentifier: "MenuSandwich") as? SandwichCell {
-                presenter.configureMenuSandwichView(sandwichCell, forIndex: indexPath.row)
-                return sandwichCell
-            }
-        case .ingredients:
-            if let ingredientCell = tableView.dequeueReusableCell(withIdentifier: "Ingredient") as? IngredientCell {
-                presenter.configureIngredientView(ingredientCell, forIndex: indexPath.row)
-                return ingredientCell
-            }
-            
+        if let sandwichCell = tableView.dequeueReusableCell(withIdentifier: "MenuSandwich") as? SandwichCell {
+            presenter.configureMenuSandwichView(sandwichCell, forIndex: indexPath.row)
+            return sandwichCell
         }
+        
         return UITableViewCell()
     }
     

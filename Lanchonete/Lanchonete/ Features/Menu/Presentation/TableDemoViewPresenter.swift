@@ -7,10 +7,6 @@
 
 import Foundation
 
-public enum Sections: CaseIterable {
-    case menuSandwiches
-    case ingredients
-}
 public protocol TableDemoView: class {
     func reloadData()
     func navigateToConfirmationScreen(sandwich: SandwichType)
@@ -26,40 +22,16 @@ public class TableDemoPresenter {
         return menuManager.getSandwichTypes()
     }()
     
-    //Get all Ingredients from the menu
-    // Get all the sandwiches from the menu
-    lazy var ingredients: [Ingredient] = {
-        return ingredientManager.getIngredientList()
-    }()
-    
     func numberOfSections() -> Int {
-        return Sections.allCases.count
+        return 1
     }
     
-    func titleForSection(_ section: Int) -> String {
-        let section = Sections.allCases[section]
-        
-        switch section {
-        case .menuSandwiches:
-            return "Menu Sandwiches"
-        case .ingredients:
-            return "Available Ingredients to personalize"
-        }
+    func titleForSection() -> String {
+        return "Menu Sandwiches"
     }
     
-    func numberOfRowsInSection(_ section: Int) -> Int {
-        let section = Sections.allCases[section]
-        
-        switch section {
-        case .menuSandwiches:
-            return menuSandwiches.count
-        case .ingredients:
-            return ingredients.count
-        }
-    }
-    
-    func getSectionHeaders() -> [Sections]{
-        return Sections.allCases
+    func numberOfRowsInSection() -> Int {
+        return menuSandwiches.count
     }
     
     //MARK: - Cell Configuration
@@ -67,13 +39,6 @@ public class TableDemoPresenter {
         let sandwich = menuSandwiches[index]
         view.display(sandwich: menuManager.getSandwichName(type: sandwich))
         view.display(price: String(menuManager.getSandwichPrice(type: sandwich)))
-    }
-    
-    func configureIngredientView(_ view: IngredientView, forIndex index: Int){
-        let ingredient = ingredients[index]
-        view.display(price: ingredientManager.getIngredientPrice(ingredient: ingredient))
-        view.display(ingredient: ingredientManager.getIngredientName(ingredient: ingredient))
-        
     }
     
     func didSelect(row: Int){
