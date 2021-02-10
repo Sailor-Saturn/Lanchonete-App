@@ -247,9 +247,33 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		3679FFB825D498D500A63792 /* ShoppingCart */ = {
+			isa = PBXGroup;
+			children = (
+				3679FFBA25D498E700A63792 /* Data */,
+				3679FFB925D498E000A63792 /* Presentation */,
+			);
+			path = ShoppingCart;
+			sourceTree = "<group>";
+		};
+		3679FFB925D498E000A63792 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		3679FFBA25D498E700A63792 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		36DFF24F25C455BF00E0D1BA /*  Features */ = {
 			isa = PBXGroup;
 			children = (
+				3679FFB825D498D500A63792 /* ShoppingCart */,
 				36DFF25225C455F100E0D1BA /* Customization */,
 				36DFF25125C455E200E0D1BA /* Confirmation */,
 				36DFF25025C455D300E0D1BA /* Menu */,
