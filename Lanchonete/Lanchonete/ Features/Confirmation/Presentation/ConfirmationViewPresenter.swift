@@ -39,4 +39,8 @@ class ConfirmationViewPresenter {
     func getSandwichCode() -> String {
         return sandwichManager.getSandwichCode()
     }
+    
+    func getSandwichIngredients() -> [Ingredient] {
+        return sandwichManager.getIngredients()
+    }
 }

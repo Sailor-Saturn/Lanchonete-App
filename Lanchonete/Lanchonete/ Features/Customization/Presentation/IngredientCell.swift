@@ -12,7 +12,7 @@ class IngredientCell: UITableViewCell, IngredientView {
     @IBOutlet weak var ingredientNameLabel: UILabel!
     @IBOutlet weak var quantity: UILabel!
     
-    let quantityVal:Int = 0
+    let ingredientCellManager = IngredientCellManager()
     
     func display(ingredient: String) {
         ingredientNameLabel.text = ingredient
@@ -22,12 +22,23 @@ class IngredientCell: UITableViewCell, IngredientView {
         priceLabel.text = price + "€"
     }
     
-    func display(quantityString: String) {
-        //quantity.text = quantityString
+    func display(quantityValue: Int) {
+        quantity.text = String (quantityValue)
+        ingredientCellManager.setQuantity(value: quantityValue)
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
     }
     
+    @IBAction func decreaseQuantity(_ sender: UIButton) {
+        ingredientCellManager.decreaseQuantity()
+        display(quantityValue: ingredientCellManager.getQuantity())
+    }
+    
+    
+    @IBAction func incrementQuantity(_ sender: UIButton) {
+        ingredientCellManager.incrementQuantity()
+        display(quantityValue: ingredientCellManager.getQuantity())
+    }
 }

@@ -8,14 +8,14 @@
 import Foundation
 
 public enum Ingredient: CaseIterable {
-    case hamburguer
+    case hamburger
     case egg
     case cheese
     case bacon
     
     var price: Double {
         switch self {
-        case .hamburguer: return 3.0
+        case .hamburger: return 3.0
         case .egg: return 2.0
         case .cheese: return 1.5
         case .bacon: return 2.5
@@ -24,7 +24,7 @@ public enum Ingredient: CaseIterable {
     
     var name: String {
         switch self {
-        case .hamburguer: return "Hamburguer"
+        case .hamburger: return "Hamburger"
         case .egg: return "Egg"
         case .cheese: return "Cheese"
         case .bacon: return "Bacon"
