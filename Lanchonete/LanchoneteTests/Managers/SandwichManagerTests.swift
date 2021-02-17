@@ -53,7 +53,7 @@ class SandwichManagerTests: XCTestCase {
         //When
         sandwichManager.removeIngredient(.bacon)
 
-        let expectedResult = [Ingredient.hamburguer, .cheese]
+        let expectedResult = [Ingredient.hamburger, .cheese]
         
         //Then
         XCTAssertEqual(sandwichManager.getIngredients(),expectedResult)
@@ -77,7 +77,7 @@ class SandwichManagerTests: XCTestCase {
         //When
         sandwichManager.removeIngredient(.egg)
 
-        let expectedResult = [Ingredient.hamburguer, .cheese, .bacon]
+        let expectedResult = [Ingredient.hamburger, .cheese, .bacon]
         
         //Then
         XCTAssertEqual(sandwichManager.getIngredients(),expectedResult)

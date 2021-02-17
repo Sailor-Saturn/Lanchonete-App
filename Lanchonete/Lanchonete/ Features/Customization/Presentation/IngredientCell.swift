@@ -22,8 +22,8 @@ class IngredientCell: UITableViewCell, IngredientView {
         priceLabel.text = price + "€"
     }
     
-    func display(quantityValue: String) {
-        quantity.text = quantityValue
+    func display(quantityValue: Int) {
+        quantity.text = String (quantityValue)
         ingredientCellManager.setQuantity(value: quantityValue)
     }
     
