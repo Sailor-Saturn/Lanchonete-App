@@ -37,6 +37,18 @@ public class ShoppingCartManager {
         }
     }
     
+    func addSandwichWithQuantity(sandwich: SandwichType, quantity: Int){
+        (1...quantity).forEach { _ in addSandwich(type: sandwich) }
+    }
     
+    func getSandwichList() -> [Sandwich] {
+        var sandwichList: [Sandwich] = []
+        for sandwich in self.sandwichList {
+            if(sandwichList.filter{ $0 == Sandwich(type: sandwich.type)}.count == 0) {
+                sandwichList.append(sandwich)
+            }
+        }
+        return sandwichList
+    }
     
 }

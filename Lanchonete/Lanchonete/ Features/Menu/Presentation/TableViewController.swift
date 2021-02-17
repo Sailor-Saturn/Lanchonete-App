@@ -9,7 +9,9 @@ import UIKit
 
 class TableViewController: UITableViewController, TableDemoView {
     let presenter = TableDemoPresenter()
+    let shoppingCartManager = ShoppingCartManager()
     
+    @IBOutlet weak var quantityLabel: UILabel!
     func reloadData() {
         tableView.reloadData()
     }
@@ -17,6 +19,7 @@ class TableViewController: UITableViewController, TableDemoView {
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter.view = self
+        quantityLabel.text = String (shoppingCartManager.getSnackCount())
     }
     
     //MARK: - Section Configuration
@@ -56,9 +59,16 @@ class TableViewController: UITableViewController, TableDemoView {
         
         guard let confirmationViewController = segue.destination as? ConfirmationViewController,
               let sandwichType = sender as? SandwichType  else {
+            if let shoppingCartController = segue.destination as? ShoppingCartController {
+                shoppingCartController.presenter = ShoppingCartPresenter(shoppingCartManager: self.shoppingCartManager)
+            }
             return
         }
         
-        confirmationViewController.presenter = ConfirmationViewPresenter(sandwichManager: SandwichManager(with: sandwichType))
+        confirmationViewController.presenter = ConfirmationViewPresenter(sandwichManager: SandwichManager(with: sandwichType), shoppingCartManager: self.shoppingCartManager)
+    }
+    
+    @IBAction func navigateToShoppingCart(_ sender: Any) {
+        self.performSegue(withIdentifier: Segues.menuToShoppingCart, sender: shoppingCartManager)
     }
 }

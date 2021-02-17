@@ -41,7 +41,10 @@ final class ConfirmationViewController: UIViewController {
     }
     
     @IBAction func addToShoppingCartButtonTapped(_ sender: Any) {
+        let quantity = Int (countLabel.text!)
+        presenter?.addToShoppingCart(quantity: quantity!)
         
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func goBackButtonTapped(_ sender: UIButton) {

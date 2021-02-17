@@ -9,7 +9,9 @@ import UIKit
 
 class ShoppingCartController: UITableViewController, ShoppingCartView {
     
-    var presenter: ShoppingCartPresenter?
+    var presenter: ShoppingCartPresenter!
+    
+    @IBOutlet weak var totalPriceLabel: UILabel!
     
     func reloadData() {
         tableView.reloadData()
@@ -17,6 +19,7 @@ class ShoppingCartController: UITableViewController, ShoppingCartView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        totalPriceLabel.text = presenter.getTotal()
     }
     
     //MARK: - Section Configuration
@@ -28,32 +31,30 @@ class ShoppingCartController: UITableViewController, ShoppingCartView {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if let titleForSection = presenter?.titleForSection(){
-            return titleForSection
+        guard let titleForSection = presenter?.titleForSection() else{
+            return "ERROR"
         }
-        return "ERROR"
+        return titleForSection
         
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return presenter.numberOfRowsInSection()
         
-        if let numberOfRowsInSection = presenter?.numberOfRowsInSection() {
-            return numberOfRowsInSection
-        }
-        return -1
     }
     
     //MARK: - Cell configuration
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if let shoppingCartCell = tableView.dequeueReusableCell(withIdentifier: "ShoppingCart") as? ShoppingCartCell {
-            presenter?.configureShoppingCart(shoppingCartCell, forIndex: indexPath.row)
+            presenter.configureShoppingCartView(shoppingCartCell, forIndex: indexPath.row)
             return shoppingCartCell
         }
         return UITableViewCell()
     }
     
-        //self.dismiss(animated: true, completion: nil)
-   
+    @IBAction func dismissScreen(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 

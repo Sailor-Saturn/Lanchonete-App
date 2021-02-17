@@ -9,11 +9,13 @@ import Foundation
 
 class ConfirmationViewPresenter {
     let sandwichManager: SandwichManager
+    let shoppingCartManager: ShoppingCartManager
     
     var quantity: Int = 1 
     
-    init(sandwichManager: SandwichManager) {
+    init(sandwichManager: SandwichManager, shoppingCartManager: ShoppingCartManager) {
         self.sandwichManager = sandwichManager
+        self.shoppingCartManager = shoppingCartManager
     }
     
     func getSandwichName() -> String {
@@ -42,5 +44,10 @@ class ConfirmationViewPresenter {
     
     func getSandwichIngredients() -> [Ingredient] {
         return sandwichManager.getIngredients()
+    }
+    
+    func addToShoppingCart(quantity: Int) {
+        let sandwich: SandwichType = sandwichManager.sandwichType!
+        shoppingCartManager.addSandwichWithQuantity(sandwich: sandwich, quantity: quantity)
     }
 }
