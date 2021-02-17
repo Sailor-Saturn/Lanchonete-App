@@ -51,13 +51,11 @@ final class ConfirmationViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         super.prepare(for: segue, sender: sender)
         
-        guard let customizationViewController =
-                segue.destination as?
-                CustomizationViewController,
-                let ingredients = sender as? [Ingredient] else {
+        guard let customizationViewController = segue.destination as? CustomizationViewController,
+              let ingredients = sender as? [Ingredient] else {
             return
         }
         
-        customizationViewController.presenter = CustomizationViewPresenter(ingredientManager: IngredientManager(with: ingredients))
+        customizationViewController.presenter = CustomizationViewPresenter(ingredientManager: IngredientManager(with: ingredients), allIngredientManager: AllIngredientsManager())
     }
 }

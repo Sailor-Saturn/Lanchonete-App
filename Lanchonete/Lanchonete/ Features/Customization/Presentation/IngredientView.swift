@@ -10,5 +10,5 @@ public protocol IngredientView: class {
     
     func display(ingredient: String)
     func display(price: String)
-    func display(quantityValue: String)
+    func display(quantityValue: Int)
 }

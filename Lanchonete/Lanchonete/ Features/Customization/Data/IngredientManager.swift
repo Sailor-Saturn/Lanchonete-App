@@ -8,20 +8,16 @@
 import Foundation
 
 public class IngredientManager {
-    var ingredients: [Ingredient]?
+    var ingredients: [Ingredient] = []
     
     init(with ingredients: [Ingredient]? = nil){
         guard let ingredientsFinal = ingredients else {
             return
         }
         self.ingredients = ingredientsFinal
-        return
     }
     
     public func containsIngredient(ingredient: Ingredient) -> Bool {
-        if let ingredientsFinal = self.ingredients {
-            return ingredientsFinal.contains(ingredient)
-        }
-        return false
+        return ingredients.contains(ingredient)
     }
 }

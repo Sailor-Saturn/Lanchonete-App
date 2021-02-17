@@ -17,12 +17,12 @@ public class IngredientCellManager {
         self.ingredientQuantity = 0
     }
     
-    func setQuantity(value: String) {
-        ingredientQuantity = Int (value) ?? 0
+    func setQuantity(value: Int) {
+        ingredientQuantity = value
     }
     
-    func getQuantity() -> String {
-        return String (ingredientQuantity)
+    func getQuantity() -> Int {
+        return ingredientQuantity
     }
     
     func decreaseQuantity(){

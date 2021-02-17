@@ -12,12 +12,13 @@ public protocol CustomizationView: class {
 }
 public class CustomizationViewPresenter {
     let ingredientManager: IngredientManager
-    let allIngredientManager = AllIngredientsManager()
+    let allIngredientManager: AllIngredientsManager
     
     public var view: CustomizationView?
     
-    init(ingredientManager: IngredientManager) {
+    init(ingredientManager: IngredientManager, allIngredientManager: AllIngredientsManager) {
         self.ingredientManager = ingredientManager
+        self.allIngredientManager = allIngredientManager
     }
     // Get all the sandwiches from the menu
     lazy var ingredients: [Ingredient] = {
@@ -29,7 +30,7 @@ public class CustomizationViewPresenter {
     }
     
     func titleForSection() -> String {
-        return "Avaliable Ingredients"
+        return "Available Ingredients"
     }
     
     func numberOfRowsInSection() -> Int {
@@ -46,9 +47,9 @@ public class CustomizationViewPresenter {
     
     func configureQuantity(view: IngredientView,ingredient: Ingredient) {
         if(ingredientManager.containsIngredient(ingredient: ingredient)){
-            view.display(quantityValue: "1")
+            view.display(quantityValue: 1)
         }else {
-            view.display(quantityValue: "0")
+            view.display(quantityValue: 0)
         }
     }
     

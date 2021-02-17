@@ -9,7 +9,7 @@ import UIKit
 
 class CustomizationViewController: UITableViewController, CustomizationView {
     
-    var presenter: CustomizationViewPresenter?
+    var presenter: CustomizationViewPresenter!
     
     func reloadData() {
         tableView.reloadData()
@@ -28,10 +28,11 @@ class CustomizationViewController: UITableViewController, CustomizationView {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if let titleForSection = presenter?.titleForSection(){
-            return titleForSection
+        guard let titleForSection = presenter?.titleForSection() else{
+            return "ERROR"
         }
-        return "ERROR"
+        return titleForSection
+       
         
     }
     

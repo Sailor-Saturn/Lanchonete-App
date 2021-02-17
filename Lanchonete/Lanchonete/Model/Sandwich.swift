@@ -17,13 +17,13 @@ public enum SandwichType:  String, CaseIterable {
     var ingredientsInSandwich: [Ingredient] {
         switch self {
         case .xBacon:
-            return [.hamburguer,.cheese,.bacon]
+            return [.hamburger,.cheese,.bacon]
         case .xBurguer:
-            return [.hamburguer,.cheese]
+            return [.hamburger,.cheese]
         case .xEgg:
-            return [.hamburguer,.cheese,.egg]
+            return [.hamburger,.cheese,.egg]
         case .xEggBacon:
-            return [.hamburguer,.cheese,.egg,.bacon]
+            return [.hamburger,.cheese,.egg,.bacon]
         }
     }
     
