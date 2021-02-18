@@ -6,49 +6,64 @@
 //
 
 import Foundation
+public struct Item: Equatable {
+    let quantity: Int
+    let price: Double
+    let sandwichType: SandwichType
+}
+
 public class ShoppingCartManager {
-    var sandwichList: [Sandwich] = []
+    var sandwichSelection: [Item] = []
     
     public func getSnackCount() -> Int{
-        return sandwichList.count
-    }
-    
-    public func getSandwichCount(type: SandwichType) -> Int{
-        return sandwichList.filter{ $0 == Sandwich(type: type)}.count
-    }
-    
-    public func getFinalPrice() -> Double {
-        var total = 0.0
-        
-        for sandwich in sandwichList {
-            total += sandwich.price()
+        return sandwichSelection.reduce(0) { (result, item) -> Int in
+            return result + item.quantity
         }
-        
-        return total
     }
     
-    func addSandwich(type: SandwichType) {
-        sandwichList.append(Sandwich(type: type))
+    init(items: [Item]? = nil) {
+        guard let itemsFinal = items else {
+            return
+        }
+        self.sandwichSelection = itemsFinal
+    }
+
+    public func getFinalPrice() -> Double {
+        return sandwichSelection.reduce(0) { (total, item) -> Double in
+            return total + (Double(item.quantity) * item.price)
+        }
     }
     
     func removeSandwich(type: SandwichType){
-        if let index = sandwichList.firstIndex(of: Sandwich(type: type)) {
-            sandwichList.remove(at: index)
-        }
-    }
-    
-    func addSandwichWithQuantity(sandwich: SandwichType, quantity: Int){
-        (1...quantity).forEach { _ in addSandwich(type: sandwich) }
-    }
-    
-    func getSandwichList() -> [Sandwich] {
-        var sandwichList: [Sandwich] = []
-        for sandwich in self.sandwichList {
-            if(sandwichList.filter{ $0 == Sandwich(type: sandwich.type)}.count == 0) {
-                sandwichList.append(sandwich)
+        if let item = sandwichSelection.filter({ $0.sandwichType == type }).first {
+            removeItemAtIndex(item: item)
+            
+            if item.quantity > 1 {
+                let newQuantity = item.quantity - 1
+                
+                addItemInSelection(quantity: newQuantity, price: item.price, sandwichType: item.sandwichType)
             }
         }
-        return sandwichList
     }
     
+    func addSandwichWithQuantity(sandwich: SandwichType, quantity: Int, price: Double){
+        if let item = sandwichSelection.filter({ $0.sandwichType == sandwich }).first {
+            removeItemAtIndex(item: item)
+            let newQuantity = item.quantity + quantity
+            
+            addItemInSelection(quantity: newQuantity, price: item.price, sandwichType: item.sandwichType)
+        }else {
+            addItemInSelection(quantity: quantity, price: price, sandwichType: sandwich)
+        }
+    }
+    
+    func removeItemAtIndex(item: Item){
+        if let index = sandwichSelection.firstIndex(of: item) {
+            sandwichSelection.remove(at: index)
+        }
+    }
+    
+    func addItemInSelection(quantity: Int, price: Double, sandwichType: SandwichType) {
+        sandwichSelection.append(Item(quantity: quantity, price: price, sandwichType: sandwichType))
+    }
 }

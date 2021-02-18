@@ -28,15 +28,16 @@ public class ShoppingCartPresenter {
     }
     
     func numberOfRowsInSection() -> Int {
-        return shoppingCartManager.getSandwichList().count
+        
+        return shoppingCartManager.sandwichSelection.count
     }
     
     //MARK: Cell Configuration
     func configureShoppingCartView(_ view: ShoppingCartCellView, forIndex index: Int){
-        let sandwich:Sandwich = self.shoppingCartManager.sandwichList[index]
-        view.display(name: sandwich.type.name)
-        view.display(price: String (sandwich.price()))
-        view.display(quantity: shoppingCartManager.getSandwichCount(type: sandwich.type))
+        let sandwich:Item = self.shoppingCartManager.sandwichSelection[index]
+        view.display(name: sandwich.sandwichType.name)
+        view.display(price: String (sandwich.price))
+        view.display(quantity: sandwich.quantity)
         
     }
     

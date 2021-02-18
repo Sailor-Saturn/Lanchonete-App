@@ -46,8 +46,8 @@ class ConfirmationViewPresenter {
         return sandwichManager.getIngredients()
     }
     
-    func addToShoppingCart(quantity: Int) {
+    func addToShoppingCart() {
         let sandwich: SandwichType = sandwichManager.sandwichType!
-        shoppingCartManager.addSandwichWithQuantity(sandwich: sandwich, quantity: quantity)
+        shoppingCartManager.addSandwichWithQuantity(sandwich: sandwich, quantity: quantity, price: sandwichManager.getPrice())
     }
 }

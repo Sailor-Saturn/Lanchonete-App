@@ -7,18 +7,18 @@
 
 import Foundation
 
-public enum SandwichType:  String, CaseIterable {
+public enum SandwichType:  String, CaseIterable, Equatable {
     
     case xBacon = "X-Bacon"
     case xEgg = "X-Egg"
-    case xBurguer = "X-Burguer"
+    case xBurger = "X-Burger"
     case xEggBacon = "X-EggBacon"
     
     var ingredientsInSandwich: [Ingredient] {
         switch self {
         case .xBacon:
             return [.hamburger,.cheese,.bacon]
-        case .xBurguer:
+        case .xBurger:
             return [.hamburger,.cheese]
         case .xEgg:
             return [.hamburger,.cheese,.egg]
@@ -31,7 +31,7 @@ public enum SandwichType:  String, CaseIterable {
         switch self {
         case .xBacon:
             return "X-Bacon"
-        case .xBurguer:
+        case .xBurger:
             return "X-Burguer"
         case .xEgg:
             return "X-Egg"
@@ -46,7 +46,7 @@ public enum SandwichType:  String, CaseIterable {
             return "X-Bacon"
         case .xEgg:
             return "X-Egg"
-        case .xBurguer:
+        case .xBurger:
             return "X-Burguer"
         case .xEggBacon:
             return "X-EggBacon"
