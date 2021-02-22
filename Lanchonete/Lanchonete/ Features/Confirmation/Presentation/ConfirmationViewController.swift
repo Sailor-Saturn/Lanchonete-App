@@ -59,7 +59,7 @@ final class ConfirmationViewController: UIViewController {
     
     func displaySandwich() {
         sandwichTitle.text = presenter?.getSandwichName()
-        sandwichIngredientList.text = presenter?.getIngredientList()
+        sandwichIngredientList.text = presenter?.getIngredientListToString()
         if let code = presenter?.getSandwichCode(),
            let image = UIImage(named: code) {
             sandwichImage.image = image
