@@ -8,7 +8,7 @@
 import Foundation
 
 public class IngredientManager {
-    var ingredients: [Ingredient] = []
+    private var ingredients: [Ingredient] = []
     
     init(with ingredients: [Ingredient]? = nil){
         guard let ingredientsFinal = ingredients else {
@@ -19,5 +19,32 @@ public class IngredientManager {
     
     public func containsIngredient(ingredient: Ingredient) -> Bool {
         return ingredients.contains(ingredient)
+    }
+    
+    public func getQuantity(for ingredient: Ingredient) -> Int {
+        var quantity = 0
+        
+        for item in ingredients {
+            if item == ingredient {
+                quantity += 1
+            }
+        }
+        
+        return quantity
+    }
+    
+    func addIngredient(_ ingredient: Ingredient){
+        ingredients.append(ingredient)
+    }
+    
+    func removeIngredient(_ ingredient: Ingredient){
+        guard let index = ingredients.firstIndex(of: ingredient) else {
+            return
+        }
+        ingredients.remove(at: index)
+    }
+    
+    func getAllIngredients() -> [Ingredient]{
+        return ingredients
     }
 }

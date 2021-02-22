@@ -13,6 +13,7 @@ public enum SandwichType:  String, CaseIterable, Equatable {
     case xEgg = "X-Egg"
     case xBurger = "X-Burger"
     case xEggBacon = "X-EggBacon"
+    case xCustom = "X-Custom"
     
     var ingredientsInSandwich: [Ingredient] {
         switch self {
@@ -24,6 +25,8 @@ public enum SandwichType:  String, CaseIterable, Equatable {
             return [.hamburger,.cheese,.egg]
         case .xEggBacon:
             return [.hamburger,.cheese,.egg,.bacon]
+        case .xCustom:
+            return []
         }
     }
     
@@ -32,11 +35,13 @@ public enum SandwichType:  String, CaseIterable, Equatable {
         case .xBacon:
             return "X-Bacon"
         case .xBurger:
-            return "X-Burguer"
+            return "X-Burger"
         case .xEgg:
             return "X-Egg"
         case .xEggBacon:
             return "X-EggBacon"
+        case .xCustom:
+            return "X-Custom"
         }
     }
     
@@ -47,9 +52,11 @@ public enum SandwichType:  String, CaseIterable, Equatable {
         case .xEgg:
             return "X-Egg"
         case .xBurger:
-            return "X-Burguer"
+            return "X-Burger"
         case .xEggBacon:
             return "X-EggBacon"
+        case .xCustom:
+            return "X-Custom"
         }
     }
     

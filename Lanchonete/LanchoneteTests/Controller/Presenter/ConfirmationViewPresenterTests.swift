@@ -23,7 +23,7 @@ class ConfirmationViewPresenterTest: XCTestCase {
         
         let confirmationViewPresenter = ConfirmationViewPresenter(sandwichManager: sandwichManager, shoppingCartManager: ShoppingCartManager())
         
-        XCTAssertEqual(confirmationViewPresenter.getIngredientList(), "Ingredients: Hamburguer, Cheese, Bacon.")
+        XCTAssertEqual(confirmationViewPresenter.getIngredientList(), "Ingredients: 1x Hamburger, 1x Cheese, 1x Bacon.")
     }
     
     func test_GIVEN_a_customized_sandwich_WHEN_I_click_on_the_sandwich_THEN_I_should_see_the_name_X_Custom() {

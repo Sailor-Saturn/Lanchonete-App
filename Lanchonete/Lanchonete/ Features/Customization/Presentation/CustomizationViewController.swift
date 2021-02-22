@@ -9,7 +9,7 @@ import UIKit
 
 class CustomizationViewController: UITableViewController, CustomizationView {
     
-    var presenter: CustomizationViewPresenter!
+    var presenter: CustomizationViewPresenter?
     
     func reloadData() {
         tableView.reloadData()
@@ -32,7 +32,7 @@ class CustomizationViewController: UITableViewController, CustomizationView {
             return "ERROR"
         }
         return titleForSection
-       
+        
         
     }
     
@@ -49,6 +49,7 @@ class CustomizationViewController: UITableViewController, CustomizationView {
         
         if let ingredientCell = tableView.dequeueReusableCell(withIdentifier: "Ingredient") as? IngredientCell {
             presenter?.configureIngredientView(ingredientCell, forIndex: indexPath.row)
+            ingredientCell.delegate = self
             return ingredientCell
         }
         return UITableViewCell()
@@ -56,5 +57,22 @@ class CustomizationViewController: UITableViewController, CustomizationView {
     
     @IBAction func dismissScreen(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func confirmCustomization(_ sender: UIButton) {
+        presenter?.confirmCustomization()
+        self.dismiss(animated: true, completion: nil)
+    }
+}
+extension CustomizationViewController: IngredientCellDelegate {
+    func ingredientCellDidDecreaseQuantity(for index: Int) {
+        presenter?.removeIngredient(from: index)
+        reloadData()
+    }
+    
+    func ingredientCellDidIncrementQuantity(for index: Int) {
+        presenter?.addIngredient(from: index)
+        reloadData()
     }
 }

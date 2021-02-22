@@ -8,7 +8,5 @@
 import Foundation
 public protocol IngredientView: class {
     
-    func display(ingredient: String)
-    func display(price: String)
-    func display(quantityValue: Int)
+    func populate(ingredient: String, price: Double, quantity: Int, index: Int)
 }

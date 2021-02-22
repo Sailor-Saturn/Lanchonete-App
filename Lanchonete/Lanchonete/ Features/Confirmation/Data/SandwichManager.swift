@@ -57,12 +57,20 @@ public class SandwichManager {
     }
     
     func getSandwichIngredientListString() -> String{
-        let joinedIngredients = ingredients.map{$0.name}.joined(separator: ", ")
+        var ingredientList: [String] = []
         
-        if(joinedIngredients.isEmpty){
+        if(ingredients.isEmpty){
             return "No Ingredients yet! 😳"
         }
+
+        for ingredientType in Ingredient.allCases {
+            let instancesIngredient = ingredients.filter({ $0 == ingredientType }).count
+            if(instancesIngredient > 0){
+                ingredientList.append("\(instancesIngredient)x \(ingredientType.name)")
+            }
+        }
         
+        let joinedIngredients = ingredientList.joined(separator: ", ")
         return "Ingredients: " + joinedIngredients + "."
     }
     
@@ -76,5 +84,10 @@ public class SandwichManager {
     
     func removeAll(){
         ingredients.removeAll()
+    }
+    
+    func update(with ingredients: [Ingredient]){
+        removeAll()
+        self.ingredients = ingredients
     }
 }

@@ -12,6 +12,8 @@ class TableViewController: UITableViewController, TableDemoView {
     let shoppingCartManager = ShoppingCartManager()
     
     @IBOutlet weak var quantityLabel: UILabel!
+    
+    
     func reloadData() {
         tableView.reloadData()
     }
@@ -66,9 +68,18 @@ class TableViewController: UITableViewController, TableDemoView {
         }
         
         confirmationViewController.presenter = ConfirmationViewPresenter(sandwichManager: SandwichManager(with: sandwichType), shoppingCartManager: self.shoppingCartManager)
+        confirmationViewController.presenter?.view = confirmationViewController
+        confirmationViewController.presenter?.delegate = self
     }
     
     @IBAction func navigateToShoppingCart(_ sender: Any) {
         self.performSegue(withIdentifier: Segues.menuToShoppingCart, sender: shoppingCartManager)
     }
+}
+extension TableViewController: ConfirmationViewDelegate {
+    func confirmationViewDidEnd(with sandwichCount: Int) {
+        quantityLabel.text = "\(sandwichCount)"
+    }
+    
+    
 }

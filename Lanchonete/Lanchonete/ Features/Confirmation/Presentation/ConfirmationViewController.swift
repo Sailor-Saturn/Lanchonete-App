@@ -20,12 +20,7 @@ final class ConfirmationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        sandwichTitle.text = presenter?.getSandwichName()
-        sandwichIngredientList.text = presenter?.getIngredientList()
-        if let code = presenter?.getSandwichCode(),
-           let image = UIImage(named: code) {
-            sandwichImage.image = image
-        }
+        presenter?.viewDidLoad()
     }
     
     @IBAction func plusButtonTapped(_ sender: UIButton) {
@@ -58,6 +53,23 @@ final class ConfirmationViewController: UIViewController {
             return
         }
         
-        customizationViewController.presenter = CustomizationViewPresenter(ingredientManager: IngredientManager(with: ingredients), allIngredientManager: AllIngredientsManager())
+        customizationViewController.presenter = CustomizationViewPresenter(ingredientManager: IngredientManager(with: ingredients))
+        customizationViewController.presenter?.delegate = self
+    }
+    
+    func displaySandwich() {
+        sandwichTitle.text = presenter?.getSandwichName()
+        sandwichIngredientList.text = presenter?.getIngredientList()
+        if let code = presenter?.getSandwichCode(),
+           let image = UIImage(named: code) {
+            sandwichImage.image = image
+        }
     }
 }
+extension ConfirmationViewController: CustomizationViewDelegate {
+    func customizationViewDidEnd(with ingredients: [Ingredient]) {
+        presenter?.updateIngredientList(ingredients: ingredients)
+    }
+}
+
+
