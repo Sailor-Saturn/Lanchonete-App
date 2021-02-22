@@ -84,4 +84,21 @@ class ConfirmationViewPresenterTest: XCTestCase {
         
         XCTAssertEqual(confirmationViewPresenter.getSandwichCode(),"X-Custom")
     }
+    func test_GIVEN_a_confirmation_screen_with_the_xbacon_sandwich_WHEN_I_customize_the_xbacon_sandwich_with_the_ingredient_list_egg_bacon_hamburger_THEN_the_ingredientlist_should_be_updated () {
+        let sandwichManager = SandwichManager(with: .xBacon, ingredients: [.hamburger,.bacon,.cheese])
+        
+        let confirmationViewPresenter = ConfirmationViewPresenter(sandwichManager: sandwichManager, shoppingCartManager: ShoppingCartManager())
+        
+        confirmationViewPresenter.updateIngredientList(ingredients: [.egg, .bacon, .hamburger])
+        
+        XCTAssertEqual(confirmationViewPresenter.getSandwichIngredients(),[.egg, .bacon, .hamburger])
+    }
+    
+    func test_GIVEN_a_confirmation_screen_with_the_xbacon_sandwich_WHEN_I_see_the_ingredient_list_THEN_the_ingredient_list_should_be_bacon_bacon () {
+        let sandwichManager = SandwichManager(with: .xBacon, ingredients: [.hamburger,.cheese,.bacon])
+        
+        let confirmationViewPresenter = ConfirmationViewPresenter(sandwichManager: sandwichManager, shoppingCartManager: ShoppingCartManager())
+
+        XCTAssertEqual(confirmationViewPresenter.getSandwichIngredients(),[.hamburger,.cheese,.bacon])
+    }
 }
