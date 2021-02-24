@@ -40,6 +40,7 @@
 		36B2842C25C84B6700264F39 /* ConfirmationViewPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B2842B25C84B6700264F39 /* ConfirmationViewPresenterTests.swift */; };
 		36CFEEB325C040CD005364EA /* SandwichManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CFEEB225C040CD005364EA /* SandwichManagerTests.swift */; };
 		36DFF25825C457B600E0D1BA /* ConfirmationViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DFF25725C457B600E0D1BA /* ConfirmationViewPresenter.swift */; };
+		36F7654B25E54E6C000DBF44 /* CustomizationPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F7654A25E54E6C000DBF44 /* CustomizationPresenterTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		36B2842B25C84B6700264F39 /* ConfirmationViewPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewPresenterTests.swift; sourceTree = "<group>"; };
 		36CFEEB225C040CD005364EA /* SandwichManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SandwichManagerTests.swift; sourceTree = "<group>"; };
 		36DFF25725C457B600E0D1BA /* ConfirmationViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationViewPresenter.swift; sourceTree = "<group>"; };
+		36F7654A25E54E6C000DBF44 /* CustomizationPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizationPresenterTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 			children = (
 				360DD3EC25BF41F50033C599 /* TableDemoViewPresenterTests.swift */,
 				36B2842B25C84B6700264F39 /* ConfirmationViewPresenterTests.swift */,
+				36F7654A25E54E6C000DBF44 /* CustomizationPresenterTests.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -498,6 +501,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36F7654B25E54E6C000DBF44 /* CustomizationPresenterTests.swift in Sources */,
 				363067BC25CC10E00066EE6F /* MenuManagerTests.swift in Sources */,
 				362C759425A618500011C600 /* LanchoneteTests.swift in Sources */,
 				36CFEEB325C040CD005364EA /* SandwichManagerTests.swift in Sources */,

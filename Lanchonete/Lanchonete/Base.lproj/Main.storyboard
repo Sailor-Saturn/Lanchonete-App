@@ -403,6 +403,9 @@
                             <outlet property="delegate" destination="r3e-zf-RUa" id="ZH3-zI-sFi"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="confirmButton" destination="kRI-xv-wKx" id="fFT-hN-1sg"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vjY-tM-Rwg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -37,11 +37,15 @@ public class IngredientManager {
         ingredients.append(ingredient)
     }
     
-    func removeIngredient(_ ingredient: Ingredient){
+    func removeIngredient(_ ingredient: Ingredient) -> Bool{
         guard let index = ingredients.firstIndex(of: ingredient) else {
-            return
+            return false
         }
         ingredients.remove(at: index)
+        if ingredients.isEmpty {
+            return false
+        }
+        return true
     }
     
     func getAllIngredients() -> [Ingredient]{

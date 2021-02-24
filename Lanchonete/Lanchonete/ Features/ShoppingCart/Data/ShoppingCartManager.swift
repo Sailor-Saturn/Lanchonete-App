@@ -47,7 +47,7 @@ public class ShoppingCartManager {
     }
     
     func addSandwichWithQuantity(sandwich: SandwichType, quantity: Int, price: Double){
-        if let item = sandwichSelection.filter({ $0.sandwichType == sandwich }).first {
+        if let item = sandwichSelection.filter({ $0.sandwichType == sandwich && $0.price == price}).first {
             removeItemAtIndex(item: item)
             let newQuantity = item.quantity + quantity
             

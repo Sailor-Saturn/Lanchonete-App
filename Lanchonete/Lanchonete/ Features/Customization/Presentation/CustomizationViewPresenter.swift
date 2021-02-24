@@ -49,22 +49,24 @@ public class CustomizationViewPresenter {
         view.populate(ingredient: ingredient.name, price: ingredient.price, quantity: quantity, index: index)
     }
     
-    func configureQuantity(view: IngredientView,ingredient: Ingredient) {
-        
-    }
     
     func confirmCustomization() {
         delegate?.customizationViewDidEnd(with: ingredientManager.getAllIngredients())
     }
     
-    func addIngredient(from row: Int){
+    func addIngredient(from row: Int) -> Bool{
         let ingredient = ingredients[row]
         ingredientManager.addIngredient(ingredient)
+        return true
     }
     
-    func removeIngredient(from row: Int){
+    func removeIngredient(from row: Int) -> Bool{
         let ingredient = ingredients[row]
-        ingredientManager.removeIngredient(ingredient)
+        return ingredientManager.removeIngredient(ingredient)
+    }
+    
+    func isConfirmButtonEnabled() -> Bool {
+        return !ingredientManager.getAllIngredients().isEmpty
     }
     
 }

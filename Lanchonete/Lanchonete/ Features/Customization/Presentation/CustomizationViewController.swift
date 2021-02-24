@@ -9,6 +9,7 @@ import UIKit
 
 class CustomizationViewController: UITableViewController, CustomizationView {
     
+    @IBOutlet weak var confirmButton: UIButton!
     var presenter: CustomizationViewPresenter?
     
     func reloadData() {
@@ -17,6 +18,11 @@ class CustomizationViewController: UITableViewController, CustomizationView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let flag = presenter!.isConfirmButtonEnabled()
+        confirmButton.isEnabled = flag
+        if flag == false{
+            confirmButton.alpha = 0.5
+        }
     }
     
     //MARK: - Section Configuration
@@ -67,12 +73,17 @@ class CustomizationViewController: UITableViewController, CustomizationView {
 }
 extension CustomizationViewController: IngredientCellDelegate {
     func ingredientCellDidDecreaseQuantity(for index: Int) {
-        presenter?.removeIngredient(from: index)
+        confirmButton.isEnabled = presenter!.removeIngredient(from: index)
+        if !confirmButton.isEnabled {
+            confirmButton.alpha = 0.5
+        }
         reloadData()
     }
     
     func ingredientCellDidIncrementQuantity(for index: Int) {
-        presenter?.addIngredient(from: index)
+        confirmButton.isEnabled = presenter!.addIngredient(from: index)
+        confirmButton.alpha = 1
+       
         reloadData()
     }
 }
