@@ -17,10 +17,12 @@ final class ConfirmationViewController: UIViewController {
     @IBOutlet weak var sandwichIngredientList: UILabel!
     @IBOutlet weak var sandwichImage: UIImageView!
     @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var addToShoppingCartButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad()
+        canTheSandwichBeAddedToShoppingCart()
     }
     
     @IBAction func plusButtonTapped(_ sender: UIButton) {
@@ -65,10 +67,21 @@ final class ConfirmationViewController: UIViewController {
             sandwichImage.image = image
         }
     }
+    
+    func canTheSandwichBeAddedToShoppingCart() {
+        if presenter!.getSandwichIngredients().isEmpty {
+            addToShoppingCartButton.isEnabled = false
+            addToShoppingCartButton.alpha = 0.5
+        }else {
+            addToShoppingCartButton.isEnabled = true
+            addToShoppingCartButton.alpha = 1
+        }
+    }
 }
 extension ConfirmationViewController: CustomizationViewDelegate {
     func customizationViewDidEnd(with ingredients: [Ingredient]) {
         presenter?.updateIngredientList(ingredients: ingredients)
+        canTheSandwichBeAddedToShoppingCart()
     }
 }
 

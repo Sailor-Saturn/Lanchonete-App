@@ -254,6 +254,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="zJ7-d1-zUn"/>
                     <connections>
+                        <outlet property="addToShoppingCartButton" destination="wRX-cd-LZC" id="S3f-Lf-nvg"/>
                         <outlet property="countLabel" destination="F7S-W3-NTp" id="RPu-fj-fQT"/>
                         <outlet property="sandwichImage" destination="Mmf-gT-1uh" id="QQW-vu-WlZ"/>
                         <outlet property="sandwichIngredientList" destination="zwC-4K-z5T" id="Abt-FO-EpS"/>

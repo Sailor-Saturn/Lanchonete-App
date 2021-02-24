@@ -70,5 +70,12 @@ class ShoppingCartManagerTests: XCTestCase {
         
         XCTAssertEqual(manager.getFinalPrice(), 17.0)
     }
+    
+    func test_GIVEN_a_shopping_cart_with_xbacon_WHEN_I_add_another_xbacon_THEN_the_list_should_be_updated() {
+        let manager = ShoppingCartManager(items: [Item(quantity: 1, price: 7.0, sandwichType: .xBacon)])
+        
+        manager.addSandwichWithQuantity(sandwich: .xBacon, quantity: 1, price: 7.0)
+        XCTAssertEqual(manager.getFinalPrice(), 14.0)
+    }
 
 }
