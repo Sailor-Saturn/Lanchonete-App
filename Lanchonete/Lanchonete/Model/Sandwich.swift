@@ -31,33 +31,11 @@ public enum SandwichType:  String, CaseIterable, Equatable {
     }
     
     var name: String {
-        switch self {
-        case .xBacon:
-            return "X-Bacon"
-        case .xBurger:
-            return "X-Burger"
-        case .xEgg:
-            return "X-Egg"
-        case .xEggBacon:
-            return "X-EggBacon"
-        case .xCustom:
-            return "X-Custom"
-        }
+        return self.rawValue
     }
     
     var code: String {
-        switch self {
-        case .xBacon:
-            return "X-Bacon"
-        case .xEgg:
-            return "X-Egg"
-        case .xBurger:
-            return "X-Burger"
-        case .xEggBacon:
-            return "X-EggBacon"
-        case .xCustom:
-            return "X-Custom"
-        }
+        return self.rawValue
     }
     
 }

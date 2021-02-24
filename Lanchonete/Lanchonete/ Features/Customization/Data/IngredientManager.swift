@@ -22,15 +22,7 @@ public class IngredientManager {
     }
     
     public func getQuantity(for ingredient: Ingredient) -> Int {
-        var quantity = 0
-        
-        for item in ingredients {
-            if item == ingredient {
-                quantity += 1
-            }
-        }
-        
-        return quantity
+        return ingredients.filter { $0 == ingredient }.count
     }
     
     func addIngredient(_ ingredient: Ingredient){
