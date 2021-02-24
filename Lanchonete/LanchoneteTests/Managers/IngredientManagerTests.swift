@@ -58,10 +58,22 @@ class IngredientManagerTests: XCTestCase {
         XCTAssertEqual(ingredientManager.getAllIngredients(), [.hamburger])
     }
     
-    func test_GIVEN_a_list_that_has_bacon_bacon_egg_WHEN_I_remove_one_hamburger_THEN_the_list_should_be_bacon_bacon_egg() {
-        let ingredientManager = IngredientManager(with:[.bacon,.bacon, .egg])
-        ingredientManager.removeIngredient(.hamburger)
-        XCTAssertEqual(ingredientManager.getAllIngredients(), [.bacon,.bacon, .egg])
+    func test_GIVEN_a_sandwich_WHEN_I_remove_all_of_the_ingredients_THEN_I_should_return_false() {
+        let ingredientManager = IngredientManager(with:[.bacon])
+        
+        XCTAssertFalse(ingredientManager.removeIngredient(.bacon))
+    }
+    
+    func test_GIVEN_a_sandwich_WHEN_I_remove_one_of_the_ingredients_THEN_I_should_return_true() {
+        let ingredientManager = IngredientManager(with:[.bacon,.hamburger,.cheese])
+        
+        XCTAssertTrue(ingredientManager.removeIngredient(.bacon))
+    }
+    
+    func test_GIVEN_a_sandwich_WHEN_I_remove_one_of_the_ingredients_that_does_not_exist_THEN_I_should_return_false() {
+        let ingredientManager = IngredientManager(with:[.bacon,.hamburger,.cheese])
+        
+        XCTAssertFalse(ingredientManager.removeIngredient(.egg))
     }
 
 }

@@ -32,5 +32,4 @@ class CustomizationPresenterTests: XCTestCase {
         let customizationPresenter = CustomizationViewPresenter(ingredientManager: IngredientManager(with: [.bacon]))
         XCTAssertTrue(customizationPresenter.isConfirmButtonEnabled())
     }
-    
 }
