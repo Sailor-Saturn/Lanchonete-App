@@ -6,21 +6,32 @@
 //
 
 import Foundation
+public protocol ConfirmationViewDelegate: AnyObject {
+    func confirmationViewDidEnd(with sandwichCount: Int)
+}
 
-class ConfirmationViewPresenter {
+public class ConfirmationViewPresenter {
     let sandwichManager: SandwichManager
+    let shoppingCartManager: ShoppingCartManager
+    weak var view: ConfirmationViewController?
+    weak var delegate: ConfirmationViewDelegate?
     
-    var quantity: Int = 1 
+    var quantity: Int = 1
     
-    init(sandwichManager: SandwichManager) {
+    func viewDidLoad() {
+        view?.displaySandwich()
+    }
+    
+    init(sandwichManager: SandwichManager, shoppingCartManager: ShoppingCartManager) {
         self.sandwichManager = sandwichManager
+        self.shoppingCartManager = shoppingCartManager
     }
     
     func getSandwichName() -> String {
         sandwichManager.getSandwichName()
     }
     
-    func getIngredientList() -> String {
+    func getIngredientListToString() -> String {
         sandwichManager.getSandwichIngredientListString()
     }
     
@@ -42,5 +53,16 @@ class ConfirmationViewPresenter {
     
     func getSandwichIngredients() -> [Ingredient] {
         return sandwichManager.getIngredients()
+    }
+    
+    func addToShoppingCart() {
+        let sandwich: SandwichType = sandwichManager.sandwichType!
+        shoppingCartManager.addSandwichWithQuantity(sandwich: sandwich, quantity: quantity, price: sandwichManager.getPrice())
+        delegate?.confirmationViewDidEnd(with: shoppingCartManager.getSnackCount())
+    }
+    
+    func updateIngredientList(ingredients: [Ingredient]){
+        sandwichManager.update(with: ingredients)
+        view?.displaySandwich()
     }
 }

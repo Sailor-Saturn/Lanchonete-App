@@ -7,50 +7,35 @@
 
 import Foundation
 
-public enum SandwichType:  String, CaseIterable {
+public enum SandwichType:  String, CaseIterable, Equatable {
     
     case xBacon = "X-Bacon"
     case xEgg = "X-Egg"
-    case xBurguer = "X-Burguer"
+    case xBurger = "X-Burger"
     case xEggBacon = "X-EggBacon"
+    case xCustom = "X-Custom"
     
     var ingredientsInSandwich: [Ingredient] {
         switch self {
         case .xBacon:
             return [.hamburger,.cheese,.bacon]
-        case .xBurguer:
+        case .xBurger:
             return [.hamburger,.cheese]
         case .xEgg:
             return [.hamburger,.cheese,.egg]
         case .xEggBacon:
             return [.hamburger,.cheese,.egg,.bacon]
+        case .xCustom:
+            return []
         }
     }
     
     var name: String {
-        switch self {
-        case .xBacon:
-            return "X-Bacon"
-        case .xBurguer:
-            return "X-Burguer"
-        case .xEgg:
-            return "X-Egg"
-        case .xEggBacon:
-            return "X-EggBacon"
-        }
+        return self.rawValue
     }
     
     var code: String {
-        switch self {
-        case .xBacon:
-            return "X-Bacon"
-        case .xEgg:
-            return "X-Egg"
-        case .xBurguer:
-            return "X-Burguer"
-        case .xEggBacon:
-            return "X-EggBacon"
-        }
+        return self.rawValue
     }
     
 }

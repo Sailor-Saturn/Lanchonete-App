@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum Ingredient: CaseIterable {
+public enum Ingredient: CaseIterable, Equatable {
     case hamburger
     case egg
     case cheese

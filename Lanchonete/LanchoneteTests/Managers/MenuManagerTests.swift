@@ -12,7 +12,7 @@ class MenuManagerTests: XCTestCase {
     func test_GIVEN_the_menu_screen_WHEN_I_see_the_menu_sandwich_table_THEN_I_should_see_all_the_listed_menu_sandwich_names () {
         let menuManager: MenuManager = MenuManager()
         
-        XCTAssertEqual(menuManager.getSandwichTypes(), [.xBacon,.xEgg,.xBurguer,.xEggBacon])
+        XCTAssertEqual(menuManager.getSandwichTypes(), [.xBacon,.xEgg,.xBurger,.xEggBacon,.xCustom])
     }
     
     func test_GIVEN_the_menu_screen_WHEN_I_select_a_sandwich_THEN_I_should_see_the_name_of_the_sandwich () {

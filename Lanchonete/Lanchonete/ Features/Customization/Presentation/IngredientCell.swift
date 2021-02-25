@@ -6,39 +6,33 @@
 //
 
 import UIKit
+public protocol IngredientCellDelegate: AnyObject {
+    func ingredientCellDidDecreaseQuantity(for index: Int)
+    func ingredientCellDidIncrementQuantity(for index: Int)
+}
 
 class IngredientCell: UITableViewCell, IngredientView {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var ingredientNameLabel: UILabel!
-    @IBOutlet weak var quantity: UILabel!
+    @IBOutlet weak var quantityLabel: UILabel!
+    weak var delegate: IngredientCellDelegate?
+    private var index: Int = 0
     
-    let ingredientCellManager = IngredientCellManager()
-    
-    func display(ingredient: String) {
+    func populate(ingredient: String, price: Double, quantity: Int, index: Int){
         ingredientNameLabel.text = ingredient
-    }
-    
-    func display(price: String) {
-        priceLabel.text = price + "€"
-    }
-    
-    func display(quantityValue: Int) {
-        quantity.text = String (quantityValue)
-        ingredientCellManager.setQuantity(value: quantityValue)
-    }
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
+        
+        priceLabel.text = "\(price) €"
+        
+        quantityLabel.text = "\(quantity)"
+        
+        self.index = index
     }
     
     @IBAction func decreaseQuantity(_ sender: UIButton) {
-        ingredientCellManager.decreaseQuantity()
-        display(quantityValue: ingredientCellManager.getQuantity())
+        delegate?.ingredientCellDidDecreaseQuantity(for: index)
     }
     
-    
     @IBAction func incrementQuantity(_ sender: UIButton) {
-        ingredientCellManager.incrementQuantity()
-        display(quantityValue: ingredientCellManager.getQuantity())
+        delegate?.ingredientCellDidIncrementQuantity(for: index)
     }
 }

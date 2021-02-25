@@ -131,4 +131,17 @@ class SandwichManagerTests: XCTestCase {
         XCTAssertEqual(sandwichManager.getIngredients(), [])
     }
     
+    func test_GIVEN_a_bacon_sandwich_WHEN_I_want_to_see_the_description_THEN_I_should_get_the_ingredient_list() {
+        let sandwichManager = SandwichManager(with: .xBacon)
+        
+        XCTAssertEqual(sandwichManager.getSandwichIngredientListString(), "Ingredients: 1x Hamburger, 1x Cheese, 1x Bacon.")
+    }
+    
+    func test_GIVEN_a_bacon_sandwich_WHEN_I_remove_the_hamburger_ingredient_THEN_I_should_get_the_updated_ingredient_list() {
+        let sandwichManager = SandwichManager(with: .xBacon)
+        
+        sandwichManager.removeIngredient(.hamburger)
+        
+        XCTAssertEqual(sandwichManager.getSandwichIngredientListString(), "Ingredients: 1x Cheese, 1x Bacon.")
+    }
 }

@@ -17,23 +17,22 @@ final class ConfirmationViewController: UIViewController {
     @IBOutlet weak var sandwichIngredientList: UILabel!
     @IBOutlet weak var sandwichImage: UIImageView!
     @IBOutlet weak var countLabel: UILabel!
+    @IBOutlet weak var addToShoppingCartButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        sandwichTitle.text = presenter?.getSandwichName()
-        sandwichIngredientList.text = presenter?.getIngredientList()
-        if let code = presenter?.getSandwichCode(),
-           let image = UIImage(named: code) {
-            sandwichImage.image = image
-        }
+        presenter?.viewDidLoad()
+        canTheSandwichBeAddedToShoppingCart()
     }
     
     @IBAction func plusButtonTapped(_ sender: UIButton) {
         countLabel.text = presenter?.incrementQuantity()
+        canTheSandwichBeAddedToShoppingCart()
     }
     
     @IBAction func minusButtonTapped(_ sender: Any) {
         countLabel.text = presenter?.decrementQuantity()
+        canTheSandwichBeAddedToShoppingCart()
     }
     
     @IBAction func personalizeButtonTapped(_ sender: Any) {
@@ -41,7 +40,9 @@ final class ConfirmationViewController: UIViewController {
     }
     
     @IBAction func addToShoppingCartButtonTapped(_ sender: Any) {
+        presenter?.addToShoppingCart()
         
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func goBackButtonTapped(_ sender: UIButton) {
@@ -56,6 +57,34 @@ final class ConfirmationViewController: UIViewController {
             return
         }
         
-        customizationViewController.presenter = CustomizationViewPresenter(ingredientManager: IngredientManager(with: ingredients), allIngredientManager: AllIngredientsManager())
+        customizationViewController.presenter = CustomizationViewPresenter(ingredientManager: IngredientManager(with: ingredients))
+        customizationViewController.presenter?.delegate = self
+    }
+    
+    func displaySandwich() {
+        sandwichTitle.text = presenter?.getSandwichName()
+        sandwichIngredientList.text = presenter?.getIngredientListToString()
+        if let code = presenter?.getSandwichCode(),
+           let image = UIImage(named: code) {
+            sandwichImage.image = image
+        }
+    }
+    
+    func canTheSandwichBeAddedToShoppingCart() {
+        if (presenter!.getSandwichIngredients().isEmpty || countLabel.text == "0"){
+            addToShoppingCartButton.isEnabled = false
+            addToShoppingCartButton.alpha = 0.5
+        }else {
+            addToShoppingCartButton.isEnabled = true
+            addToShoppingCartButton.alpha = 1
+        }
     }
 }
+extension ConfirmationViewController: CustomizationViewDelegate {
+    func customizationViewDidEnd(with ingredients: [Ingredient]) {
+        presenter?.updateIngredientList(ingredients: ingredients)
+        canTheSandwichBeAddedToShoppingCart()
+    }
+}
+
+

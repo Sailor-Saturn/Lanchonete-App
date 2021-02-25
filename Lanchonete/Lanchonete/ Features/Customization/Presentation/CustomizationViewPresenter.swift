@@ -7,22 +7,32 @@
 
 import Foundation
 
-public protocol CustomizationView: class {
+public protocol CustomizationView: AnyObject {
     func reloadData()
+    func display(confirm isEnabled: Bool)
 }
+
+public protocol CustomizationViewDelegate: AnyObject {
+    func customizationViewDidEnd(with ingredients: [Ingredient])
+}
+
 public class CustomizationViewPresenter {
     let ingredientManager: IngredientManager
-    let allIngredientManager: AllIngredientsManager
+    weak var delegate: CustomizationViewDelegate?
     
     public var view: CustomizationView?
     
-    init(ingredientManager: IngredientManager, allIngredientManager: AllIngredientsManager) {
+    func viewDidLoad() {
+        let willDisplay = !ingredientManager.getAllIngredients().isEmpty
+        view?.display(confirm: willDisplay)
+    }
+    
+    init(ingredientManager: IngredientManager) {
         self.ingredientManager = ingredientManager
-        self.allIngredientManager = allIngredientManager
     }
     // Get all the sandwiches from the menu
     lazy var ingredients: [Ingredient] = {
-        return allIngredientManager.getIngredientList()
+        return Ingredient.allCases
     }()
     
     func numberOfSections() -> Int {
@@ -40,17 +50,25 @@ public class CustomizationViewPresenter {
     //MARK: - Cell Configuration
     func configureIngredientView(_ view: IngredientView, forIndex index: Int){
         let ingredient = ingredients[index]
-        view.display(price: allIngredientManager.getIngredientPrice(ingredient: ingredient))
-        view.display(ingredient: allIngredientManager.getIngredientName(ingredient: ingredient))
-        configureQuantity(view: view, ingredient: ingredient)
+        let quantity = ingredientManager.getQuantity(for: ingredient)
+        
+        view.populate(ingredient: ingredient.name, price: ingredient.price, quantity: quantity, index: index)
     }
     
-    func configureQuantity(view: IngredientView,ingredient: Ingredient) {
-        if(ingredientManager.containsIngredient(ingredient: ingredient)){
-            view.display(quantityValue: 1)
-        }else {
-            view.display(quantityValue: 0)
-        }
+    
+    func confirmCustomization() {
+        delegate?.customizationViewDidEnd(with: ingredientManager.getAllIngredients())
+    }
+    
+    func addIngredient(from row: Int) -> Bool{
+        let ingredient = ingredients[row]
+        ingredientManager.addIngredient(ingredient)
+        return true
+    }
+    
+    func removeIngredient(from row: Int) -> Bool{
+        let ingredient = ingredients[row]
+        return ingredientManager.removeIngredient(ingredient)
     }
     
 }
