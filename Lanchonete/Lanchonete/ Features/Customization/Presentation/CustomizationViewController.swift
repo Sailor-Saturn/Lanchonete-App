@@ -18,11 +18,11 @@ class CustomizationViewController: UITableViewController, CustomizationView {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let flag = presenter!.isConfirmButtonEnabled()
-        confirmButton.isEnabled = flag
-        if flag == false{
-            confirmButton.alpha = 0.5
-        }
+    }
+    
+    func display(confirm isEnabled: Bool) {
+        confirmButton.isEnabled = isEnabled
+        confirmButton.alpha = isEnabled ? 1 : 0.5
     }
     
     //MARK: - Section Configuration
@@ -38,8 +38,7 @@ class CustomizationViewController: UITableViewController, CustomizationView {
             return "ERROR"
         }
         return titleForSection
-        
-        
+
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

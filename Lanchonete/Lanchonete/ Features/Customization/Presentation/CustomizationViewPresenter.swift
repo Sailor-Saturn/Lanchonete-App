@@ -9,6 +9,7 @@ import Foundation
 
 public protocol CustomizationView: AnyObject {
     func reloadData()
+    func display(confirm isEnabled: Bool)
 }
 
 public protocol CustomizationViewDelegate: AnyObject {
@@ -20,6 +21,11 @@ public class CustomizationViewPresenter {
     weak var delegate: CustomizationViewDelegate?
     
     public var view: CustomizationView?
+    
+    func viewDidLoad() {
+        let willDisplay = !ingredientManager.getAllIngredients().isEmpty
+        view?.display(confirm: willDisplay)
+    }
     
     init(ingredientManager: IngredientManager) {
         self.ingredientManager = ingredientManager
@@ -63,10 +69,6 @@ public class CustomizationViewPresenter {
     func removeIngredient(from row: Int) -> Bool{
         let ingredient = ingredients[row]
         return ingredientManager.removeIngredient(ingredient)
-    }
-    
-    func isConfirmButtonEnabled() -> Bool {
-        return !ingredientManager.getAllIngredients().isEmpty
     }
     
 }

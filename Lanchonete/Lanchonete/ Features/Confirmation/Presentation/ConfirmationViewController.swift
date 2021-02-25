@@ -27,10 +27,12 @@ final class ConfirmationViewController: UIViewController {
     
     @IBAction func plusButtonTapped(_ sender: UIButton) {
         countLabel.text = presenter?.incrementQuantity()
+        canTheSandwichBeAddedToShoppingCart()
     }
     
     @IBAction func minusButtonTapped(_ sender: Any) {
         countLabel.text = presenter?.decrementQuantity()
+        canTheSandwichBeAddedToShoppingCart()
     }
     
     @IBAction func personalizeButtonTapped(_ sender: Any) {
@@ -69,7 +71,7 @@ final class ConfirmationViewController: UIViewController {
     }
     
     func canTheSandwichBeAddedToShoppingCart() {
-        if presenter!.getSandwichIngredients().isEmpty {
+        if (presenter!.getSandwichIngredients().isEmpty || countLabel.text == "0"){
             addToShoppingCartButton.isEnabled = false
             addToShoppingCartButton.alpha = 0.5
         }else {

@@ -24,12 +24,36 @@ class CustomizationPresenterTests: XCTestCase {
     }
     
     func test_GIVEN_an_XBacon_sandwich_WHEN_I_remove_all_of_the_ingredients_THEN_I_should_see_that_the_list_is_empty(){
-        let customizationPresenter = CustomizationViewPresenter(ingredientManager: IngredientManager(with: []))
-        XCTAssertFalse(customizationPresenter.isConfirmButtonEnabled())
+        let fakeCustomizationController = FakeCustomizationViewController()
+        let customizationPresenter = CustomizationViewPresenter(ingredientManager: IngredientManager(with: [.bacon]))
+        
+        customizationPresenter.view = fakeCustomizationController
+        customizationPresenter.viewDidLoad()
+        customizationPresenter.removeIngredient(from: 3)
+        
+        XCTAssertFalse(fakeCustomizationController.spy_didCallDisplayButton)
     }
     
     func test_GIVEN_an_XBacon_sandwich_WHEN_I_have_one_ingredient_THEN_I_should_be_able_to_click_on_the_confirm_button(){
+        let fakeCustomizationController = FakeCustomizationViewController()
+        
         let customizationPresenter = CustomizationViewPresenter(ingredientManager: IngredientManager(with: [.bacon]))
-        XCTAssertTrue(customizationPresenter.isConfirmButtonEnabled())
+        
+        customizationPresenter.view = fakeCustomizationController
+        customizationPresenter.viewDidLoad()
+        
+        XCTAssertTrue(fakeCustomizationController.spy_didCallDisplayButton)
     }
+}
+class FakeCustomizationViewController: CustomizationView {
+    
+    var spy_didCallDisplayButton: Bool = false
+    func reloadData() {
+        
+    }
+    
+    func display(confirm isEnabled: Bool) {
+        spy_didCallDisplayButton = isEnabled
+    }
+    
 }
