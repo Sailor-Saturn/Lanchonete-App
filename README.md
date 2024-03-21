@@ -46,7 +46,3 @@ The value of each menu option is given by the sum of the ingredients that make u
 ![](images/customizationScreen.png)
 
 ![](images/shoppingCartScreen.png)
-
-## Video Demo
-
-![](https://s4.gifyu.com/images/ezgif.com-gif-maker9abeb02b0ac0ae83.gif)
