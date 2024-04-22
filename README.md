@@ -1,4 +1,4 @@
-# Lanchonete-Challenge-Level-2
+# Lanchonete App
 This project is a solution to a challenge. The main goal is to create a iOS app that simulates a hamburger purchasing app.
 
 There are 4 screens:
